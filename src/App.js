@@ -1,9 +1,11 @@
 import React from 'react';
-import Navbar from './Navbar/navbar';
-import AboutUs from './components/AboutUs/aboutus';
-import Events from './components/Events';
-import Committee from './components/Committee';
-import EventForm from './components/EventForm';
+import Navbar from './Navbar/navbar'; // Adjust path as necessary
+import AboutUs from '../src/components/AboutUs/aboutus'; // Adjust path as necessary
+import Events from './components/Events/Events'; // Adjust path as necessary
+import Committee from './components/Committee'; // Adjust path as necessary
+import EventForm from './components/EventForm'; // Adjust path as necessary
+import RolesAndResponsibilities from '../src/components/roles/RolesAndResponsibilities'; // Ensure this is correct
+import CommitteeStructure from '../src/components/CommitteeStructure/CommitteeStructure'; // Ensure this is correct
 
 const App = () => {
     return (
@@ -11,6 +13,12 @@ const App = () => {
             <Navbar />
             <section id="about-us">
                 <AboutUs />
+            </section>
+            <section id="roles-and-responsibilities">
+                <RolesAndResponsibilities />
+            </section>
+            <section id="committee-structure">
+                <CommitteeStructure />
             </section>
             <section id="events">
                 <Events />
@@ -21,6 +29,7 @@ const App = () => {
             <section id="event-form">
                 <EventForm />
             </section>
+            
         </div>
     );
 };

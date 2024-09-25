@@ -1,0 +1,33 @@
+.committee-structure {
+    transition: transform 0.3s ease;
+}
+
+.committee-structure:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+.structure {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Responsive design */
+}
+
+.role {
+    background-color: #f8f9fa; /* Light background for roles */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: 30%; /* Adjust width for responsiveness */
+    margin: 10px; /* Margin between role cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.icon {
+    font-size: 2rem; /* Size of the icons */
+    color: #ff6b6b; /* Customize icon color */
+}
+
+.role-title {
+    font-size: 1.5rem; /* Size of role titles */
+    margin: 10px 0;
+}

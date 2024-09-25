@@ -1,7 +1,8 @@
+// src/components/Navbar/Navbar.js
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
-import '../Navbar/navbar.css' // lowercase 'n'
-// Import the CSS file for styling
+import './navbar.css'; // Ensure correct casing for CSS import
+import logo from '../assets/logo.png'; // Update the path as necessary
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,11 +12,14 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`navbar ${isOpen ? 'open' : ''}`}>
+        <nav className="navbar">
+            <div className="logo">
+                <img src={logo} alt="Spandan Logo" />
+            </div>
             <div className="hamburger" onClick={toggleMenu}>
-                <span className={`line ${isOpen ? "open" : ""}`}></span>
-                <span className={`line ${isOpen ? "open" : ""}`}></span>
-                <span className={`line ${isOpen ? "open" : ""}`}></span>
+                <span className={isOpen ? "line open" : "line"}></span>
+                <span className={isOpen ? "line open" : "line"}></span>
+                <span className={isOpen ? "line open" : "line"}></span>
             </div>
             <ul className={`nav-links ${isOpen ? 'show' : ''}`}>
                 <li>
@@ -26,6 +30,12 @@ const Navbar = () => {
                 </li>
                 <li>
                     <Link to="committee" smooth={true} duration={500}>Committee</Link>
+                </li>
+                <li>
+                    <Link to="roles-and-responsibilities" smooth={true} duration={500}>Roles and Responsibilities</Link>
+                </li>
+                <li>
+                    <Link to="committee-structure" smooth={true} duration={500}>Committee Structure</Link>
                 </li>
                 <li>
                     <Link to="event-form" smooth={true} duration={500}>Register</Link>
