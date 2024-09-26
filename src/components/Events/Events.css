@@ -2,8 +2,8 @@
 
 /* General styling */
 .events-section {
-    padding: 60px 40px; /* Increased padding for the section */
-    background: linear-gradient(45deg, #4a148c, #880e4f); /* Darker gradient for better contrast */
+    padding: 60px 15px; /* Adjusted padding for smaller screens */
+    background: linear-gradient(45deg, #4a148c, #880e4f);
     color: #fff;
     font-family: 'Roboto', sans-serif;
     text-align: center;
@@ -11,73 +11,83 @@
     animation: fadeIn 1s ease-out;
 }
 
+/* Title styling */
 .events-title {
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-    color: #ffcc00; /* Bright color for visibility */
+    font-size: 2.8rem; /* Slightly larger for better readability */
+    margin-bottom: 30px;
+    color: #ffcc00; 
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}          
-.event-description {                                                                                                   
-    font-size: 1.7rem;
-    color: #ffcc00; /* Highlight the description in a bright color */
-}                                                 
+}
+
+/* Event description styling */
+.event-description {
+    font-size: 1.5rem; /* Adjusted for better scaling */
+    color: #ffcc00; 
+    margin-bottom: 50px;
+}
 
 /* Container for event cards */
 .events-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px; /* Gap between the event cards */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* More responsive grid */
+    gap: 40px; /* Increased gap for better spacing */
     justify-content: center;
-    padding: 20px; /* Padding around the grid for spacing inside the section */
+    padding: 20px;
     animation: slideUp 1s ease-out;
-    max-width: 1200px;
+    max-width: 1300px; /* Increased max-width */
     margin: 0 auto;
 }
 
 /* Event card styles */
 .event-card {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding:30px; /* Padding inside the event card */
-    border-radius: 15px;
-    width: 300px;
-    height: 350px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 20px; /* Increased padding for breathing room */
+    border-radius: 25px;
+    width: 100%; /* Full width */
+    max-width: 350px; /* Maximum card width */
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     position: relative;
     overflow: hidden;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px); /* Enhanced frosted glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Hover effect for event cards */
 .event-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-15px); /* More lift on hover */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* Event icon styling */
 .event-icon {
-    font-size: 4rem; /* Larger size for visibility */
+    font-size: 4.5rem; /* Larger icon size */
     margin-bottom: 20px;
-    color: #ffcc00; /* Bright yellow for better contrast */
-    transition: color 0.3s, transform 0.5s ease-in-out;
-    animation: pulse 2s infinite ease-in-out;
+    color: #ffcc00;
+    transition: color 0.3s ease, transform 0.5s ease-in-out;
+    animation: pulse 2.5s infinite ease-in-out;
 }
 
-/* Hover effects for icons */
+/* Hover effect for icons */
 .event-card:hover .event-icon {
-    color: #ff5722; /* Bright orange on hover */
-    transform: rotate(360deg); /* Rotate on hover */
+    color: #ff5722;
+    transform: rotate(360deg); /* Rotate animation */
+    margin: 5px;
 }
 
 /* Event name styling */
 .event-name {
-    font-size: 1.7rem; /* Increased font size */
-    color: #ffffff; /* White color for better contrast */
+    font-size: 1.6rem;
+    color: #ffffff;
     font-weight: bold;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Stronger shadow for text visibility */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    margin-bottom: 15px;
 }
 
 /* Animations */
@@ -92,7 +102,7 @@
 
 @keyframes slideUp {
     from {
-        transform: translateY(30px);
+        transform: translateY(50px);
         opacity: 0;
     }
     to {
@@ -110,7 +120,7 @@
     }
 }
 
-/* Icon glowing effect */
+/* Glowing effect for icons */
 .event-icon::before {
     content: '';
     position: absolute;
@@ -122,18 +132,90 @@
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .event-card:hover .event-icon::before {
     width: 120px;
     height: 120px;
-    background: radial-gradient(circle, rgba(255, 87, 34, 0.3), transparent); /* Reduce opacity */
+    background: radial-gradient(circle, rgba(255, 87, 34, 0.3), transparent);
 }
 
-/* Media query to ensure four cards per row on larger screens */
-@media (min-width: 1200px) {
-    .events-container {
-        grid-template-columns: repeat(4, 1fr); /* Always show 4 cards in a row */
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .events-title {
+        font-size: 2.5rem;
     }
+
+    .event-description {
+        font-size: 1.4rem;
+    }
+
+    .events-container {
+        gap: 30px; /* Reduced gap for medium screens */
+    }
+
+    .event-card {
+        max-width: 320px; /* Smaller max-width for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .events-title {
+        font-size: 2rem;
+    }
+
+    .event-description {
+        font-size: 1.3rem;
+    }
+
+    .event-card {
+        padding: 16px;
+        max-width: 280px; /* Adjusted for smaller screens */
+    }
+
+    .event-icon {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .events-title {
+        font-size: 1.8rem;
+    }
+
+    .event-description {
+        font-size: 1.2rem;
+    }
+
+    .event-card {
+        padding: 12px;
+        max-width: 240px;
+    }
+
+    .event-icon {
+        font-size: 3rem;
+    }
+
+    .event-name {
+        font-size: 1.3rem;
+    }
+}
+
+/* "See More" Button */
+.see-more-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    margin-top: 30px;
+    background-color: #ffcc00;
+    color: #4a148c;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.see-more-btn:hover {
+    background-color: #ff5722;
+    color: #fff;
+    transform: scale(1.05);
 }
