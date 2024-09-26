@@ -1,5 +1,11 @@
-/* navbar.css */
+/* General Body Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
+/* Navbar Styles */
 .navbar {
     position: fixed;
     width: 100%;
@@ -13,8 +19,13 @@
     transition: all 0.3s ease;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    max-width: 1200px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
 }
 
+/* Hamburger Menu for Mobile */
 .hamburger {
     cursor: pointer;
     display: none; /* Hide by default */
@@ -34,6 +45,7 @@
     background-color: #ff6b6b; /* Change color when open */
 }
 
+/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
@@ -59,7 +71,13 @@
     flex-direction: column; /* Stack items vertically */
 }
 
-/* Media Queries */
+/* Logo Styling */
+.logo img {
+    height: 55px; /* Adjust the height as needed */
+    width: auto; /* Maintain aspect ratio */
+}
+
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .hamburger {
         display: flex; /* Show hamburger menu in mobile view */
@@ -75,14 +93,20 @@
         flex-direction: column;
         padding: 10px 0;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        align-items: center;
+    }
+
+    .nav-links li {
+        width: 100%; /* Ensure links take up the full width on mobile */
+    }
+
+    .nav-links li a {
+        width: 100%;
+        text-align: center; /* Center text on mobile */
     }
 
     .show {
         display: flex; /* Show on mobile when open */
     }
-}
-
-.logo img {
-    height: 55px; /* Adjust the height as needed */
-    width: auto; /* Maintain aspect ratio */
 }

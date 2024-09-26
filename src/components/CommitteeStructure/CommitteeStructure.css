@@ -1,33 +1,79 @@
+/* Committee Structure Section */
 .committee-structure {
     transition: transform 0.3s ease;
+    padding: 20px; /* Padding inside the structure */
+    max-width: 1200px; /* Limit the width for larger screens */
+    margin: 0 auto; /* Center the structure */
 }
 
 .committee-structure:hover {
     transform: scale(1.02); /* Slight zoom effect on hover */
 }
 
+/* Structure Container */
 .structure {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap; /* Responsive design */
+    justify-content: center; /* Align items to the center */
+    flex-wrap: wrap; /* Allows items to wrap for responsiveness */
+    gap: 20px; /* Ensure space between elements */
+    padding: 0 10px; /* Padding inside structure to prevent overflow */
 }
 
+/* Role Card Styling */
 .role {
     background-color: #f8f9fa; /* Light background for roles */
     border-radius: 8px;
     padding: 20px;
     text-align: center;
-    width: 30%; /* Adjust width for responsiveness */
-    margin: 10px; /* Margin between role cards */
+    box-sizing: border-box; /* Ensure padding does not affect the width */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 calc(33% - 40px); /* Flex behavior to fit within 3 columns */
+    max-width: 32%; /* Prevent the cards from stretching too much */
+    margin: 10px;
 }
 
+.role:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+/* Icon Styling */
 .icon {
     font-size: 2rem; /* Size of the icons */
     color: #ff6b6b; /* Customize icon color */
 }
 
+/* Role Title Styling */
 .role-title {
     font-size: 1.5rem; /* Size of role titles */
     margin: 10px 0;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 1024px) {
+    .role {
+        flex: 1 1 calc(45% - 40px); /* 2 items per row on tablets */
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .role {
+        flex: 1 1 100%; /* 1 item per row on mobile */
+        max-width: 100%; /* Ensure full width on small screens */
+    }
+
+    .structure {
+        justify-content: center; /* Center content on small screens */
+    }
+}
+
+/* Frame Styling for Context */
+.frame {
+    border: 2px solid #ff6b6b; /* Optional border around the frame */
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 1240px; /* Limit width of the frame */
+    margin: 20px auto; /* Center the frame */
 }

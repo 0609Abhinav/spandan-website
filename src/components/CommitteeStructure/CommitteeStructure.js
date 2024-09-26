@@ -15,6 +15,11 @@ const CommitteeStructure = () => {
                 </div>
                 <div className="role">
                     <FaChalkboardTeacher className="icon" />
+                    <h4 className="role-title">Organizational Members</h4>
+                    <p>Experienced members who guide and assist in organizing events.</p>
+                </div>
+                <div className="role">
+                    <FaChalkboardTeacher className="icon" />
                     <h4 className="role-title">Senior Members</h4>
                     <p>Experienced members who guide and assist in organizing events.</p>
                 </div>

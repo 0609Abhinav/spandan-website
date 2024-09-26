@@ -5,20 +5,20 @@ import './Events.css';
 
 const Events = () => {
     const eventsList = [
-        { name: 'Graphite Symphony (Sketching)', icon: <FaPencilAlt /> },
-        { name: 'Creative Cluster (Collage Making)', icon: <FaSeedling /> },
-        { name: 'Crease and Create (Design Through Paper)', icon: <GiPaperCrane /> },
-        { name: 'Moulded Magic (Clay Modelling)', icon: <GiClayBrick /> },
-        { name: 'Brushstrokes and Beyond (Painting)', icon: <FaPalette /> },
-        { name: 'Ecoelegance (Bamboo Structure)', icon: <FaSeedling /> },
-        { name: 'Photo Fiesta (Photography)', icon: <FaCamera /> },
-        { name: 'Waste to Wow (Best out of Waste)', icon: <FaRecycle /> },
-        { name: 'Concrete Canvas (Wall Painting)', icon: <FaPaintBrush /> },
-        { name: 'Melodic Breezes (Wind Chime)', icon: <FaWind /> },
-        { name: 'Inkfluence (Tattoo Making)', icon: <FaPenNib /> },
-        { name: 'Colourful Creations (Rangoli)', icon: <FaPalette /> },
-        { name: 'Masked Magic (Mask Painting)', icon: <FaMask /> },
-        { name: 'Whimsical Faces (Face Painting)', icon: <FaUserAlt /> },
+        { title: 'Graphite Symphony', description: 'Sketching', icon: <FaPencilAlt /> },
+        { title: 'Creative Cluster', description: 'Collage Making', icon: <FaSeedling /> },
+        { title: 'Crease and Create', description: 'Design Through Paper', icon: <GiPaperCrane /> },
+        { title: 'Moulded Magic', description: 'Clay Modelling', icon: <GiClayBrick /> },
+        { title: 'Brushstrokes and Beyond', description: 'Painting', icon: <FaPalette /> },
+        { title: 'Ecoelegance', description: 'Bamboo Structure', icon: <FaSeedling /> },
+        { title: 'Photo Fiesta', description: 'Photography', icon: <FaCamera /> },
+        { title: 'Waste to Wow', description: 'Best out of Waste', icon: <FaRecycle /> },
+        { title: 'Concrete Canvas', description: 'Wall Painting', icon: <FaPaintBrush /> },
+        { title: 'Melodic Breezes', description: 'Wind Chime', icon: <FaWind /> },
+        { title: 'Inkfluence', description: 'Tattoo Making', icon: <FaPenNib /> },
+        { title: 'Colourful Creations', description: 'Rangoli', icon: <FaPalette /> },
+        { title: 'Masked Magic', description: 'Mask Painting', icon: <FaMask /> },
+        { title: 'Whimsical Faces', description: 'Face Painting', icon: <FaUserAlt /> },
     ];
 
     return (
@@ -31,7 +31,12 @@ const Events = () => {
                             {event.icon}
                         </div>
                         <div className="event-info">
-                            <h3 className="event-name">{event.name}</h3>
+                            <h3 className="event-title">
+                                {event.title}
+                            </h3>
+                            <p className="event-description">
+                                {event.description}
+                            </p>
                         </div>
                     </div>
                 ))}
