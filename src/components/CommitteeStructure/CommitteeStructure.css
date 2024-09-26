@@ -1,79 +1,137 @@
 /* Committee Structure Section */
 .committee-structure {
     transition: transform 0.3s ease;
-    padding: 20px; /* Padding inside the structure */
-    max-width: 1200px; /* Limit the width for larger screens */
-    margin: 0 auto; /* Center the structure */
+    padding: 20px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
 }
 
-.committee-structure:hover {
-    transform: scale(1.02); /* Slight zoom effect on hover */
+/* Center Heading */
+h3 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add space below the heading */
 }
 
 /* Structure Container */
 .structure {
     display: flex;
-    justify-content: center; /* Align items to the center */
-    flex-wrap: wrap; /* Allows items to wrap for responsiveness */
-    gap: 20px; /* Ensure space between elements */
-    padding: 0 10px; /* Padding inside structure to prevent overflow */
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 30px; /* Increased gap for better spacing */
+    padding: 0 10px; 
 }
 
 /* Role Card Styling */
 .role {
-    background-color: #f8f9fa; /* Light background for roles */
-    border-radius: 8px;
-    padding: 20px;
+    position: relative; /* For positioning popup cards */
+    background-color: #ffffff; /* Bright background for better contrast */
+    border-radius: 12px; /* Rounded corners */
+    padding: 30px; /* Increased padding */
     text-align: center;
-    box-sizing: border-box; /* Ensure padding does not affect the width */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 1 1 calc(33% - 40px); /* Flex behavior to fit within 3 columns */
-    max-width: 32%; /* Prevent the cards from stretching too much */
-    margin: 10px;
+    flex: 1 1 calc(30% - 40px); /* Adjusted for 3 items per row */
+    max-width: 30%; /* Max width for better sizing */
+    margin: 20px; /* Increased margin */
+    overflow: hidden; /* Ensure overflow is hidden */
+    border: 1px solid #e0e0e0; /* Subtle border */
 }
 
+/* Hover Effects for Role Cards */
 .role:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Popup Card Styling */
+.popup-card {
+    position: absolute; /* Positioning the popup card */
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease;
+}
+
+.role:hover .popup-card {
+    opacity: 1; /* Show popup on hover */
 }
 
 /* Icon Styling */
 .icon {
-    font-size: 2rem; /* Size of the icons */
-    color: #ff6b6b; /* Customize icon color */
+    font-size: 2.5rem; /* Larger icon size */
+    color: #ff6b6b; 
+    margin-bottom: 15px; /* Space between icon and title */
 }
 
 /* Role Title Styling */
 .role-title {
-    font-size: 1.5rem; /* Size of role titles */
+    font-size: 1.75rem; /* Increased title size */
+    margin: 15px 0;
+    font-weight: bold; /* Bold title for emphasis */
+}
+
+/* Member Card Styling */
+.member-card {
+    text-align: center;
+    max-width: 250px; /* Set a max width for cards */
+    background-color: #f0f8ff; /* Light background for member cards */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Padding for member cards */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    transition: transform 0.3s ease; /* Animation on hover */
+}
+
+.member-card:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.member-photo {
+    width: 80%; /* Responsive photo size */
+    border-radius: 50%; /* Circular image */
+    margin-bottom: 10px; /* Space below the image */
+}
+
+.member-name {
+    font-size: 1.5rem; /* Increased font size */
     margin: 10px 0;
+    color: #333; /* Darker text color for names */
+}
+
+.member-department {
+    font-size: 1.1rem; /* Slightly larger font size for department */
+    color: #555; /* Lighter text color for departments */
 }
 
 /* Responsive Design for Smaller Screens */
 @media (max-width: 1024px) {
     .role {
-        flex: 1 1 calc(45% - 40px); /* 2 items per row on tablets */
+        flex: 1 1 calc(45% - 40px); 
         max-width: 45%;
     }
 }
 
 @media (max-width: 768px) {
     .role {
-        flex: 1 1 100%; /* 1 item per row on mobile */
-        max-width: 100%; /* Ensure full width on small screens */
+        flex: 1 1 100%; 
+        max-width: 100%; 
     }
 
     .structure {
-        justify-content: center; /* Center content on small screens */
+        justify-content: center; 
     }
 }
 
 /* Frame Styling for Context */
 .frame {
-    border: 2px solid #ff6b6b; /* Optional border around the frame */
+    border: 2px solid #ff6b6b; 
     padding: 20px;
     border-radius: 12px;
-    max-width: 1240px; /* Limit width of the frame */
-    margin: 20px auto; /* Center the frame */
+    max-width: 1240px; 
+    margin: 20px auto; 
 }

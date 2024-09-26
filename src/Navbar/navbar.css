@@ -19,7 +19,7 @@ body {
 }
 
 .navbar.scrolled {
-    background: linear-gradient(135deg, #ff6b6b, #f7e38e);  /* Example gradient */
+    background: linear-gradient(135deg, #ff6b6b, #f7e38e); /* Example gradient */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -35,7 +35,7 @@ body {
 
 /* Logo */
 .logo img {
-    height: 55px;
+    height: 5px;
     transition: transform 0.3s ease;
 }
 
@@ -110,6 +110,10 @@ body {
         width: 100%;
     }
 
+    .nav-links.show {
+        display: flex; /* Ensure nav links show when open */
+    }
+
     .nav-links li {
         width: 100%;
         text-align: center;
@@ -134,4 +138,24 @@ body {
         transform: translateY(0);
         opacity: 1;
     }
+}
+/* Logo */
+.logo img {
+    height: 70px;  /* Increase the default height */
+    transition: transform 0.3s ease;  /* Smooth transition for scaling */
+}
+
+/* Logo on Hover */
+.logo img:hover {
+    transform: scale(1.1);  /* Scale the logo up on hover */
+}
+
+/* Preventing Right Click */
+.logo img {
+    pointer-events: none; /* Prevents right-click context menu */
+}
+
+/* Alternative: Using a 'div' for logo to disable right-click */
+.logo {
+    pointer-events: none; /* Prevents interaction with the logo */
 }

@@ -12,6 +12,11 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
 
+    // Close the menu
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+
     // Handle scroll event to add background color when scrolling
     const handleScroll = () => {
         if (window.scrollY > 50) {
@@ -46,22 +51,19 @@ const Navbar = () => {
                 {/* Navigation Links */}
                 <ul className={`nav-links ${isOpen ? 'show' : ''}`}>
                     <li>
-                        <Link to="about-us" smooth={true} duration={500} onClick={toggleMenu}>About Us</Link>
+                        <Link to="about-us" smooth={true} duration={500} onClick={closeMenu}>About Us</Link>
                     </li>
                     <li>
-                        <Link to="events" smooth={true} duration={500} onClick={toggleMenu}>Events</Link>
+                        <Link to="events" smooth={true} duration={500} onClick={closeMenu}>Events</Link>
                     </li>
                     <li>
-                        <Link to="committee" smooth={true} duration={500} onClick={toggleMenu}>Committee</Link>
+                        <Link to="roles-and-responsibilities" smooth={true} duration={500} onClick={closeMenu}>Roles</Link>
                     </li>
                     <li>
-                        <Link to="roles-and-responsibilities" smooth={true} duration={500} onClick={toggleMenu}>Roles</Link>
+                        <Link to="gallery" smooth={true} duration={500} onClick={closeMenu}>Gallery</Link>
                     </li>
                     <li>
-                        <Link to="gallery" smooth={true} duration={500} onClick={toggleMenu}>Gallery</Link>
-                    </li>
-                    <li>
-                        <Link to="register" smooth={true} duration={500} onClick={toggleMenu}>Register</Link>
+                        <Link to="register" smooth={true} duration={500} onClick={closeMenu}>Register</Link>
                     </li>
                 </ul>
             </div>

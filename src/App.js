@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './Navbar/navbar'; // Adjust path as necessary
 import AboutUs from '../src/components/AboutUs/aboutus'; // Adjust path as necessary
 import Events from './components/Events/Events'; // Adjust path as necessary
-import Committee from './components/Committee'; // Adjust path as necessary
+ // Adjust path as necessary
 import EventForm from './components/EventForm'; // Adjust path as necessary
 import RolesAndResponsibilities from '../src/components/roles/RolesAndResponsibilities'; // Ensure this is correct
 import CommitteeStructure from '../src/components/CommitteeStructure/CommitteeStructure'; // Ensure this is correct
@@ -22,9 +22,6 @@ const App = () => {
             </section>
             <section id="events">
                 <Events />
-            </section>
-            <section id="committee">
-                <Committee />
             </section>
             <section id="event-form">
                 <EventForm />
