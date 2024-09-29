@@ -152,14 +152,14 @@ p:hover {
 .member-cards {
     display: flex; 
     flex-wrap: wrap; 
-    gap: 40px; 
+    gap: 30px; 
     justify-content: center; 
 }
 
 /* Member Card Styling */
 .member-card {
     text-align: center;
-    max-width: 340px; 
+    max-width: 350px; 
     background-color: #e5f3ff; 
     border-radius: 12px; 
     padding: 20px; 
@@ -192,7 +192,7 @@ p:hover {
 /* Member Photo Styling */
 .member-photo {
     width: 90%; 
-    height: auto; /* Ensure photo maintains aspect ratio */
+    height: 70%; /* Ensure photo maintains aspect ratio */
     border-radius: 100px;
     margin-bottom: 15px; 
     border: 4px solid #26089c; 
@@ -207,8 +207,9 @@ p:hover {
     font-weight: bold; 
 }
 
-/* Member Department Styling */
 .member-department {
-    font-size: 1.6rem; 
+    font-size: 1.7rem; 
     color: #555; 
+    line-height: 1.1;
+    margin: 0;
 }

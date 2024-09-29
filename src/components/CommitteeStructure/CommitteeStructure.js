@@ -10,20 +10,20 @@ import photo6 from '../../assets/photo6.jpg';
 
 const membersData = {
     convenor: [
-        { name: "Vandana Grover", photo: photo1, department: "Chemistry" },
+        { name: "Vandana Grover", photo: photo1, department: "Department of Chemistry" },
     ],
     organizationalMembers: [
-        { name: "Alice Smith", photo: photo2, department: "Mathematics" },
-        { name: "Bob Johnson", photo: photo3, department: "Physics" },
-        { name: "Charlie Brown", photo: photo4, department: "Biology" },
-        { name: "David Wilson", photo: photo5, department: "History" },
-        { name: "Emily Davis", photo: photo6, department: "Literature" },
+        { name: "Ms. Deepmala", photo: photo2, department: "Department of Electronics and Communication" },
+        { name: "Dr. Akanshi Gupta", photo: photo3, department: "Department of MBA" },
+        { name: "Dr. Saloni Singh", photo: photo4, department: "Department of Chemistry" },
+        { name: "Dr. Vinita Shukla", photo: photo5, department: "Department of Chemistry" },
+        { name: "Dr. Rajni Dwivedi", photo: photo6, department: "Department of Physics" },
     ],
     seniorMembers: [
-        { name: "Grace Lee", photo: "path/to/photo8.jpg", department: "Geography" },
+        { name: "Grace Lee", photo: "path/to/photo8.jpg", department: "Department of Geography" },
     ],
     juniorMembers: [
-        { name: "Jack Wilson", photo: "path/to/photo11.jpg", department: "Computer Science" },
+        { name: "Jack Wilson", photo: "path/to/photo11.jpg", department: "Department of Computer Science" },
     ]
 };
 
@@ -31,7 +31,7 @@ const MemberCard = ({ member }) => (
     <div className="member-card">
         <img src={member.photo} alt={member.name} className="member-photo" />
         <h4 className="member-name">{member.name}</h4>
-        <p className="member-department">Department: {member.department}</p>
+        <p className="member-department">Faculty Of : {member.department}</p>
     </div>
 );
 
@@ -63,7 +63,7 @@ const CommitteeStructure = () => (
                 title="Convenor"
                 description="The head of the committee who oversees all activities and events."
                 members={membersData.convenor}
-                icon={<FaCrown className="icon  text-red-500" />}
+                icon={<FaCrown className="icon text-red-500" />}
             />
             <CommitteeRoleSection 
                 title="Organizational Members"

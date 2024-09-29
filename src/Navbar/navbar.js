@@ -54,16 +54,19 @@ const Navbar = () => {
                         <Link to="about-us" smooth={true} duration={500} onClick={closeMenu}>About Us</Link>
                     </li>
                     <li>
-                        <Link to="events" smooth={true} duration={500} onClick={closeMenu}>Events</Link>
+                        <Link to="roles-and-responsibilities" smooth={true} duration={500} onClick={closeMenu}>Roles</Link>
                     </li>
                     <li>
-                        <Link to="roles-and-responsibilities" smooth={true} duration={500} onClick={closeMenu}>Roles</Link>
+                        <Link to="committee-structure" smooth={true} duration={500} onClick={closeMenu}>Committee</Link>
+                    </li>
+                    <li>
+                        <Link to="events" smooth={true} duration={500} onClick={closeMenu}>Events</Link>
                     </li>
                     <li>
                         <Link to="gallery" smooth={true} duration={500} onClick={closeMenu}>Gallery</Link>
                     </li>
                     <li>
-                        <Link to="register" smooth={true} duration={500} onClick={closeMenu}>Register</Link>
+                        <Link to="event-form" smooth={true} duration={500} onClick={closeMenu}>Register</Link>
                     </li>
                 </ul>
             </div>
