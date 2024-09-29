@@ -1,0 +1,132 @@
+/* Google Form Embed Container */
+.google-form-embed {
+    max-width: 100%;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Beautiful background art element */
+.google-form-embed::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    z-index: 0;
+    animation: moveArt 10s infinite alternate;
+}
+
+.google-form-embed::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    z-index: 0;
+    animation: moveArt 12s infinite alternate-reverse;
+}
+
+/* Iframe Style */
+.google-form-embed iframe {
+    width: 100%;
+    height: 85vh;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    position: relative;
+}
+
+/* Title Styles */
+.google-form-embed h3 {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveArt {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        transform: translate(30px, 30px) scale(1.2);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .google-form-embed {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .google-form-embed iframe {
+        height: 70vh; /* Reduce the height for smaller screens */
+    }
+}
+
+
+/* Add padding for mobile responsiveness */
+@media (max-width: 768px) {
+    .google-form-embed {
+        width: 95%; /* More width for mobile devices */
+        padding: 10px;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+body {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}

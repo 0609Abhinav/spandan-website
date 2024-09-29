@@ -1,27 +1,29 @@
 import React from 'react';
 import { FaUserGraduate, FaChalkboardTeacher, FaCrown } from 'react-icons/fa';
 import './CommitteeStructure.css'; 
+import photo1 from '../../assets/photo1.jpg';
+import photo2 from '../../assets/photo2.jpg';
+import photo3 from '../../assets/photo3.jpg';
+import photo4 from '../../assets/photo4.jpg';
+import photo5 from '../../assets/photo5.jpg';
+import photo6 from '../../assets/photo6.jpg';
 
 const membersData = {
     convenor: [
-        { name: "John Doe", photo: "path/to/photo1.jpg", department: "Computer Science" },
+        { name: "Vandana Grover", photo: photo1, department: "Chemistry" },
     ],
     organizationalMembers: [
-        { name: "Alice Smith", photo: "path/to/photo2.jpg", department: "Mathematics" },
-        { name: "Bob Johnson", photo: "path/to/photo3.jpg", department: "Physics" },
-        { name: "Charlie Brown", photo: "path/to/photo4.jpg", department: "Chemistry" },
-        { name: "David Wilson", photo: "path/to/photo5.jpg", department: "Biology" },
-        { name: "Eve Davis", photo: "path/to/photo6.jpg", department: "English" },
-        { name: "Frank Miller", photo: "path/to/photo7.jpg", department: "History" },
+        { name: "Alice Smith", photo: photo2, department: "Mathematics" },
+        { name: "Bob Johnson", photo: photo3, department: "Physics" },
+        { name: "Charlie Brown", photo: photo4, department: "Biology" },
+        { name: "David Wilson", photo: photo5, department: "History" },
+        { name: "Emily Davis", photo: photo6, department: "Literature" },
     ],
     seniorMembers: [
         { name: "Grace Lee", photo: "path/to/photo8.jpg", department: "Geography" },
-        { name: "Hank Wright", photo: "path/to/photo9.jpg", department: "Economics" },
-        { name: "Ivy Thompson", photo: "path/to/photo10.jpg", department: "Sociology" },
     ],
     juniorMembers: [
         { name: "Jack Wilson", photo: "path/to/photo11.jpg", department: "Computer Science" },
-        { name: "Lily Martinez", photo: "path/to/photo12.jpg", department: "Mathematics" },
     ]
 };
 
@@ -29,65 +31,53 @@ const MemberCard = ({ member }) => (
     <div className="member-card">
         <img src={member.photo} alt={member.name} className="member-photo" />
         <h4 className="member-name">{member.name}</h4>
-        <p className="member-department">{member.department}</p>
+        <p className="member-department">Department: {member.department}</p> {/* Updated line */}
     </div>
 );
 
-const CommitteeStructure = () => {
-    return (
-        <section className="committee-structure bg-white p-6 rounded-lg shadow-md mt-6">
-            <h3 className="text-2xl font-bold mb-4 text-center">Committee Structure</h3> {/* Centered Heading */}
-            <div className="structure">
-                {/* Convenor */}
-                <div className="role">
-                    <FaCrown className="icon" />
-                    <h4 className="role-title">Convenor</h4>
-                    <p>The head of the committee who oversees all activities and events.</p>
-                    {membersData.convenor.map((member, index) => (
-                        <div className="popup-card" key={index}>
-                            <MemberCard member={member} />
-                        </div>
-                    ))}
-                </div>
+const CommitteeRoleSection = ({ title, description, members, icon }) => (
+    <div className="role">
+        {icon}
+        <h2 className="role-title">{title}</h2>
+        <p>{description}</p>
+        <div className="member-cards">
+            {members.map((member, index) => (
+                <MemberCard key={index} member={member} />
+            ))}
+        </div>
+    </div>
+);
 
-                {/* Organizational Members */}
-                <div className="role">
-                    <FaChalkboardTeacher className="icon" />
-                    <h4 className="role-title">Organizational Members</h4>
-                    <p>Experienced members who guide and assist in organizing events.</p>
-                    {membersData.organizationalMembers.map((member, index) => (
-                        <div className="popup-card" key={index}>
-                            <MemberCard member={member} />
-                        </div>
-                    ))}
-                </div>
-
-                {/* Senior Members */}
-                <div className="role">
-                    <FaChalkboardTeacher className="icon" />
-                    <h4 className="role-title">Senior Members</h4>
-                    <p>Experienced members who guide and assist in organizing events.</p>
-                    {membersData.seniorMembers.map((member, index) => (
-                        <div className="popup-card" key={index}>
-                            <MemberCard member={member} />
-                        </div>
-                    ))}
-                </div>
-
-                {/* Junior Members */}
-                <div className="role">
-                    <FaUserGraduate className="icon" />
-                    <h4 className="role-title">Junior Members</h4>
-                    <p>New members who bring fresh ideas and assist in various tasks.</p>
-                    {membersData.juniorMembers.map((member, index) => (
-                        <div className="popup-card" key={index}>
-                            <MemberCard member={member} />
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
+const CommitteeStructure = () => (
+    <section className="committee-structure">
+        <h3 className="text-2xl font-bold mb-4 text-center">Committee Structure</h3>
+        <div className="structure">
+            <CommitteeRoleSection 
+                title="Convenor"
+                description="The head of the committee who oversees all activities and events."
+                members={membersData.convenor}
+                icon={<FaCrown className="icon text-5xl text-red-500" />}
+            />
+            <CommitteeRoleSection 
+                title="Organizational Members"
+                description="Experienced members who guide and assist in organizing events."
+                members={membersData.organizationalMembers}
+                icon={<FaChalkboardTeacher className="icon text-4xl text-blue-500" />}
+            />
+            <CommitteeRoleSection 
+                title="Senior Members"
+                description="Experienced members who guide and assist in organizing events."
+                members={membersData.seniorMembers}
+                icon={<FaChalkboardTeacher className="icon text-4xl text-green-500" />}
+            />
+            <CommitteeRoleSection 
+                title="Junior Members"
+                description="New members who bring fresh ideas and assist in various tasks."
+                members={membersData.juniorMembers}
+                icon={<FaUserGraduate className="icon text-4xl text-yellow-500" />}
+            />
+        </div>
+    </section>
+);
 
 export default CommitteeStructure;
