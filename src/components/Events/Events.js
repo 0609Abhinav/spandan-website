@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaPaintBrush, FaCamera, FaWind, FaPencilAlt, FaSeedling, FaPalette, FaRecycle, FaMask, FaUserAlt, FaPenNib } from 'react-icons/fa';
 import { GiClayBrick, GiPaperCrane } from 'react-icons/gi';
 import './Events.css';
@@ -21,11 +21,17 @@ const Events = () => {
         { title: 'Whimsical Faces', description: 'Face Painting', icon: <FaUserAlt /> },
     ];
 
+    const [visibleEvents, setVisibleEvents] = useState(4); // Initially show 4 events
+
+    const handleSeeMore = () => {
+        setVisibleEvents((prev) => prev + 6); // Increase visible events by 4
+    };
+
     return (
         <section id="events" className="events-section">
             <h2 className="events-title">Events</h2>
             <div className="events-container">
-                {eventsList.map((event, index) => (
+                {eventsList.slice(0, visibleEvents).map((event, index) => (
                     <div key={index} className="event-card">
                         <div className="event-icon">
                             {event.icon}
@@ -41,6 +47,11 @@ const Events = () => {
                     </div>
                 ))}
             </div>
+            {visibleEvents < eventsList.length && (
+                <button className="see-more-btn" onClick={handleSeeMore}>
+                    See More
+                </button>
+            )}
         </section>
     );
 };

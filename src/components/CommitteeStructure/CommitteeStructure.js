@@ -31,7 +31,7 @@ const MemberCard = ({ member }) => (
     <div className="member-card">
         <img src={member.photo} alt={member.name} className="member-photo" />
         <h4 className="member-name">{member.name}</h4>
-        <p className="member-department">Department: {member.department}</p> {/* Updated line */}
+        <p className="member-department">Department: {member.department}</p>
     </div>
 );
 
@@ -50,31 +50,38 @@ const CommitteeRoleSection = ({ title, description, members, icon }) => (
 
 const CommitteeStructure = () => (
     <section className="committee-structure">
+        {/* Favicon Container */}
+        <div className="favicon-container">
+            <span className="favicon">🎨</span> {/* Example favicon, replace with icons as needed */}
+            <span className="favicon">🖌️</span>
+            <span className="favicon">🖼️</span>
+        </div>
+
         <h3 className="text-2xl font-bold mb-4 text-center">Committee Structure</h3>
         <div className="structure">
             <CommitteeRoleSection 
                 title="Convenor"
                 description="The head of the committee who oversees all activities and events."
                 members={membersData.convenor}
-                icon={<FaCrown className="icon text-5xl text-red-500" />}
+                icon={<FaCrown className="icon  text-red-500" />}
             />
             <CommitteeRoleSection 
                 title="Organizational Members"
                 description="Experienced members who guide and assist in organizing events."
                 members={membersData.organizationalMembers}
-                icon={<FaChalkboardTeacher className="icon text-4xl text-blue-500" />}
+                icon={<FaChalkboardTeacher className="icon text-4xl text-blue-600" />}
             />
             <CommitteeRoleSection 
                 title="Senior Members"
                 description="Experienced members who guide and assist in organizing events."
                 members={membersData.seniorMembers}
-                icon={<FaChalkboardTeacher className="icon text-4xl text-green-500" />}
+                icon={<FaChalkboardTeacher className="icon text-4xl text-green-600" />}
             />
             <CommitteeRoleSection 
                 title="Junior Members"
                 description="New members who bring fresh ideas and assist in various tasks."
                 members={membersData.juniorMembers}
-                icon={<FaUserGraduate className="icon text-4xl text-yellow-500" />}
+                icon={<FaUserGraduate className="icon text-4xl text-purple-600" />}
             />
         </div>
     </section>

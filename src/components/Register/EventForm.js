@@ -1,9 +1,15 @@
 import React from 'react';
-import './eventform.css'; // Linking to the updated CSS
+import { motion } from 'framer-motion';
+import './eventform.css';
 
 const GoogleFormEmbed = () => {
     return (
-        <div className="google-form-embed">
+        <motion.div 
+            className="google-form-embed"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+        >
             <h3 className="text-2xl font-bold mb-4 text-center">Feedback Form</h3>
             <iframe
                 src="https://docs.google.com/forms/d/e/1FAIpQLSfF2-R6dIIcvGLuPMWGLr84O-nVlKVsFhv20FUtFHPlU4UQhQ/viewform?embedded=true"
@@ -12,7 +18,7 @@ const GoogleFormEmbed = () => {
             >
                 Loading…
             </iframe>
-        </div>
+        </motion.div>
     );
 };
 

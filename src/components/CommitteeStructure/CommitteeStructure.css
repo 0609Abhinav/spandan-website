@@ -1,8 +1,7 @@
-/* Committee Structure Section */
 .committee-structure {
     transition: transform 0.3s ease;
     padding: 40px; 
-    max-width: 1200px; 
+    max-width: 100%; 
     margin: 0 auto; 
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(249, 249, 249, 0.9));
     border-radius: 16px; 
@@ -10,6 +9,39 @@
     position: relative; 
     overflow: hidden; 
 }
+.favicon-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+/* Favicon Styling */
+.favicon {
+    font-size: 48px; /* Increase the size of the favicon */
+    width: 60px; /* Set a fixed width */
+    height: 60px; /* Set a fixed height */
+    color: #ff6b6b; /* Vibrant color for artistic appeal */
+    transition: transform 0.3s ease; /* Smooth scaling on hover */
+}
+/* Icon Styling */
+.icon {
+    font-size: 48px; /* Size of the icon */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Color for the icon */
+.icon.text-red-500 {
+    color: #65f56a; /* Tailwind's red-500 equivalent */
+}
+
+/* Hover Effect */
+.icon:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    color: #c53030; /* Darker red on hover */
+}
+
+
 
 /* Flowing Background Animation */
 .committee-structure::before {
@@ -133,9 +165,8 @@ p:hover {
     padding: 20px; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    opacity: 0; 
-    animation: fadeIn 0.5s forwards; 
-    animation-delay: 0.2s; 
+    opacity: 1; /* Ensure the cards are visible */
+    position: relative; /* Needed for positioning the artistic element */
 }
 
 /* Member Card Hover Effect */
@@ -144,9 +175,24 @@ p:hover {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); 
 }
 
+/* Artistic Element for Member Card */
+.member-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 204, 204, 0.2), rgba(255, 204, 204, 0.0));
+    border-radius: 12px; 
+    z-index: -1; /* Position it behind the content */
+    opacity: 0.8; /* Slightly transparent */
+}
+
 /* Member Photo Styling */
 .member-photo {
     width: 90%; 
+    height: auto; /* Ensure photo maintains aspect ratio */
     border-radius: 100px;
     margin-bottom: 15px; 
     border: 4px solid #26089c; 
@@ -164,54 +210,5 @@ p:hover {
 /* Member Department Styling */
 .member-department {
     font-size: 1.6rem; 
-    color: #c80707; 
-    font-style: italic; 
-    text-align: center;
-}
-
-/* Responsive Design for Smaller Screens */
-@media (max-width: 1024px) {
-    .role {
-        max-width: 90%; 
-    }
-
-    h3 {
-        font-size: 2.5rem; /* Adjust heading size */
-    }
-
-    h2 {
-        font-size: 2.5rem; /* Adjust secondary heading size */
-    }
-
-    p {
-        font-size: 1.4rem; /* Adjust paragraph font size */
-    }
-}
-
-@media (max-width: 768px) {
-    .role {
-        max-width: 100%; 
-        padding: 20px; /* Adjust padding */
-    }
-
-    h3 {
-        font-size: 2rem; /* Smaller heading */
-    }
-
-    h2 {
-        font-size: 2rem; /* Smaller secondary heading */
-    }
-
-    p {
-        font-size: 1.2rem; /* Smaller paragraph font size */
-        padding: 0 10px; /* Adjust padding for smaller screens */
-    }
-}
-
-/* Frame Styling for Context */
-.frame {
-    border: 2px solid #153bd5; 
-    padding: 20px;
-    border-radius: 16px; 
-    box-shadow: 0 6px 20px rgba(139, 16, 16, 0.3); 
+    color: #555; 
 }

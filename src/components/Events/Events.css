@@ -2,121 +2,117 @@
 
 /* General styling */
 .events-section {
-    padding: 60px 15px; /* Adjusted padding for smaller screens */
-    background: linear-gradient(45deg, #4a148c, #880e4f);
-    color: #fff;
+    padding: 60px 15px;
+    background: linear-gradient(135deg, rgba(70, 130, 180, 0.9), rgba(240, 248, 255, 0.9)); /* Soft blue gradient */
+    background-attachment: fixed; /* Parallax scrolling effect */
+    color: #333; /* Dark text for better contrast */
     font-family: 'Roboto', sans-serif;
     text-align: center;
     min-height: 100vh;
-    animation: fadeIn 1s ease-out;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Title styling */
 .events-title {
-    font-size: 2.8rem; /* Slightly larger for better readability */
+    font-size: 3rem;
     margin-bottom: 30px;
-    color: #ffcc00; 
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    color: #ffcc00; /* Keep this if you want the title to remain yellow */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 1.2s ease-out;
 }
 
 /* Event description styling */
 .event-description {
-    font-size: 1.5rem; /* Adjusted for better scaling */
-    color: #ffcc00; 
-    margin-bottom: 50px;
+    font-size: 1.4rem;
+    color: #150eeb; /* Keep this if you want the description to remain yellow */
+    margin-bottom: 10px;
+    text-align: center;
+    animation: slideInLeft 1.5s ease-out;
 }
 
 /* Container for event cards */
 .events-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* More responsive grid */
-    gap: 40px; /* Increased gap for better spacing */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Increase the min width for larger cards */
+    gap: 40px; /* Maintain gap for spacing */
     justify-content: center;
-    padding: 20px;
-    animation: slideUp 1s ease-out;
-    max-width: 1300px; /* Increased max-width */
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 /* Event card styles */
 .event-card {
     background-color: rgba(255, 255, 255, 0.15);
-    padding: 20px; /* Increased padding for breathing room */
-    border-radius: 25px;
-    width: 100%; /* Full width */
-    max-width: 350px; /* Maximum card width */
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    padding: 12px;
+    border-radius: 20px;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px); /* Enhanced frosted glass effect */
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    perspective: 1000px; /* Enables 3D effect */
+    transform-style: preserve-3d;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    height: 100%; /* Ensure all cards are the same height */
 }
 
-/* Hover effect for event cards */
+/* Card hover effect */
 .event-card:hover {
-    transform: translateY(-15px); /* More lift on hover */
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 255, 255, 0.5);
+    transform: rotateY(15deg) scale(1.05); /* 3D tilt effect */
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* Event icon styling */
 .event-icon {
-    font-size: 4.5rem; /* Larger icon size */
+    font-size: 4.5rem;
     margin-bottom: 20px;
-    color: #ffcc00;
-    transition: color 0.3s ease, transform 0.5s ease-in-out;
-    animation: pulse 2.5s infinite ease-in-out;
+    color: #4a148c; /* Change icon color to a darker shade */
+    animation: bounce 1.5s infinite;
 }
 
 /* Hover effect for icons */
 .event-card:hover .event-icon {
-    color: #ff5722;
-    transform: rotate(360deg); /* Rotate animation */
-    margin: 5px;
+    color: #d65ffb; /* Change to a different color on hover */
+    animation: rotate 1.2s infinite; /* Slowed down rotation */
 }
 
-/* Event name styling */
-.event-name {
-    font-size: 1.6rem;
-    color: #ffffff;
-    font-weight: bold;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-    margin-bottom: 15px;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
+/* Keyframe animations */
+@keyframes fadeInDown {
+    0% {
         opacity: 0;
+        transform: translateY(-20px);
     }
-    to {
+    100% {
         opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
         transform: translateY(0);
-        opacity: 1;
     }
 }
 
-@keyframes pulse {
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
     0%, 100% {
         transform: scale(1);
     }
     50% {
         transform: scale(1.1);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 
@@ -131,7 +127,6 @@
     background: radial-gradient(circle, rgba(255, 204, 0, 0.4), transparent);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
     transition: all 0.3s ease;
 }
 
@@ -141,41 +136,42 @@
     background: radial-gradient(circle, rgba(255, 87, 34, 0.3), transparent);
 }
 
-/* Responsive Media Queries */
+/* Button Styles */
+.see-more-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    margin-top: 40px;
+    background-color: #ffcc00;
+    color: #4a148c;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.see-more-btn:hover {
+    background-color: #ff5722;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Media Queries for responsiveness */
 @media (max-width: 1024px) {
     .events-title {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
     }
-
     .event-description {
-        font-size: 1.4rem;
-    }
-
-    .events-container {
-        gap: 30px; /* Reduced gap for medium screens */
-    }
-
-    .event-card {
-        max-width: 320px; /* Smaller max-width for medium screens */
+        font-size: 1.2rem;
     }
 }
 
 @media (max-width: 768px) {
     .events-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-
     .event-description {
-        font-size: 1.3rem;
-    }
-
-    .event-card {
-        padding: 16px;
-        max-width: 280px; /* Adjusted for smaller screens */
-    }
-
-    .event-icon {
-        font-size: 3.5rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -183,39 +179,13 @@
     .events-title {
         font-size: 1.8rem;
     }
-
     .event-description {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
-
     .event-card {
-        padding: 12px;
-        max-width: 240px;
+        padding: 15px;
     }
-
-    .event-icon {
-        font-size: 3rem;
+    .see-more-btn {
+        padding: 10px 30px;
     }
-
-    .event-name {
-        font-size: 1.3rem;
-    }
-}
-
-/* "See More" Button */
-.see-more-btn {
-    display: inline-block;
-    padding: 12px 30px;
-    margin-top: 30px;
-    background-color: #ffcc00;
-    color: #4a148c;
-    font-weight: bold;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.see-more-btn:hover {
-    background-color: #ff5722;
-    color: #fff;
-    transform: scale(1.05);
 }
