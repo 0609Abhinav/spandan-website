@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Google Fonts */
 
 .roles-responsibilities {
-    height: 100vh; /* Full height */
+    height: 50%; /* Full height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,6 +11,7 @@
     background: linear-gradient(270deg, #ff8a00, #e52e71, #ff6a00, #d74f93);
     background-size: 400% 400%; /* Size for smooth transition */
     font-family: 'Roboto', sans-serif; /* Use the new font */
+    padding: 20px; /* Padding for smaller screens */
 }
 
 @keyframes gradientAnimation {
@@ -65,12 +66,12 @@ h3 {
     padding-left: 1.5rem; /* Space for custom bullet */
     margin-bottom: 10px; /* Space between items */
     font-size: 1rem; /* Font size for sub-points */
-    color: #ff6a00; /* Adjusted color for better visibility */
+    color: #1500ff; /* Adjusted color for better visibility */
     transition: color 0.3s; /* Transition for hover effect */
 }
 
 .sub-content p:hover {
-    color: #ffda44; /* Lighten color on hover */
+    color: #fd0202; /* Lighten color on hover */
 }
 
 .sub-content p::before {
@@ -91,6 +92,7 @@ h3 {
     display: flex; /* Display images in a row */
     justify-content: center; /* Center images */
     margin-top: 20px; /* Space above images */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .image-container img {
@@ -110,3 +112,45 @@ h3 {
         transform: translateY(-5px);
     }
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .roles-responsibilities {
+        height: auto; /* Allow height to adjust */
+        padding: 10px; /* Reduce padding */
+    }
+
+    h3 {
+        font-size: 2rem; /* Smaller title size for mobile */
+    }
+
+    .overlay {
+        padding: 20px; /* Reduce padding on overlay */
+    }
+
+    .content {
+        font-size: 1rem; /* Smaller font size for mobile */
+    }
+
+    .sub-content p {
+        font-size: 0.9rem; /* Smaller font size for sub-points */
+    }
+
+    .icon {
+        width: 40px; /* Smaller icons for mobile */
+    }
+
+    .image-container img {
+        width: 50px; /* Smaller images for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    h3 {
+        font-size: 1.5rem; /* Title size for very small screens */
+    }
+
+    .overlay {
+        width: 100%; /* Full width for smaller screens */
+    }
+};

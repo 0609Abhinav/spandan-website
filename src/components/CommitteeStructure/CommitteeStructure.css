@@ -1,47 +1,58 @@
+/* Base Styles */
 .committee-structure {
     transition: transform 0.3s ease;
-    padding: 40px; 
-    max-width: 100%; 
-    margin: 0 auto; 
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(249, 249, 249, 0.9));
-    border-radius: 16px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
-    position: relative; 
-    overflow: hidden; 
+    padding: 50px;
+    max-width: 100%;
+    margin: 0 auto;
+    background: radial-gradient(circle at top left, rgba(240, 240, 240, 0.98), rgba(230, 230, 230, 0.9));
+    border-radius: 16px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
 }
+
+/* Favicon Container */
 .favicon-container {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    gap: 20px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
 }
 
 /* Favicon Styling */
 .favicon {
-    font-size: 48px; /* Increase the size of the favicon */
-    width: 60px; /* Set a fixed width */
-    height: 60px; /* Set a fixed height */
-    color: #ff6b6b; /* Vibrant color for artistic appeal */
-    transition: transform 0.3s ease; /* Smooth scaling on hover */
-}
-/* Icon Styling */
-.icon {
-    font-size: 48px; /* Size of the icon */
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+    font-size: 50px;
+    width: 65px;
+    height: 65px;
+    color: #e35d5b;
+    transition: transform 0.4s ease, color 0.3s ease;
+    border: 2px solid rgba(227, 93, 91, 0.2);
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 10px 20px rgba(227, 93, 91, 0.3);
 }
 
-/* Color for the icon */
+.favicon:hover {
+    transform: scale(1.15);
+    color: #b84442;
+}
+
+/* Icon Styling */
+.icon {
+    font-size: 48px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: #594a4e;
+}
+
 .icon.text-red-500 {
-    color: #65f56a; /* Tailwind's red-500 equivalent */
+    color: #725e61;
 }
 
 /* Hover Effect */
 .icon:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-    color: #c53030; /* Darker red on hover */
+    transform: scale(1.2);
+    color: #9b3838;
 }
-
-
 
 /* Flowing Background Animation */
 .committee-structure::before {
@@ -49,130 +60,116 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 200%;
     height: 100%;
-    background: linear-gradient(60deg, rgba(255, 105, 180, 0.3), rgba(255, 165, 0, 0.3));
-    opacity: 0.7;
-    z-index: 0; 
-    animation: flow 4s linear infinite; 
+    background: linear-gradient(60deg, rgba(200, 105, 150, 0.4), rgba(250, 210, 180, 0.3), rgba(245, 105, 125, 0.4));
+    opacity: 0.6;
+    z-index: 0;
+    animation: flow 10s linear infinite;
 }
 
 /* Keyframes for flowing background */
 @keyframes flow {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-/* Center Heading */
+/* Headings Styling */
 h3 {
-    text-align: center; 
-    margin-bottom: 30px; 
-    font-size: 3rem; 
-    color: #ff6b6b; 
-    font-family: 'Montserrat', sans-serif; 
-    text-transform: uppercase; 
-    letter-spacing: 1.5px; 
-    position: relative; 
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.8rem;
+    color: #9b3838;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
 }
 
 h3::after {
     content: "";
     display: block;
-    width: 60px;
+    width: 80px;
     height: 4px;
-    background: #ff6b6b;
-    margin: 15px auto; 
+    background: #9b3838;
+    margin: 15px auto;
 }
 
-/* New Headings */
 h2 {
-    font-size: 2.8rem; 
-    margin: 20px 0; 
-    color: #112de6; 
-    font-family: 'Poppins', sans-serif; 
-    font-weight: 600; 
-    text-align: center; 
-    text-shadow: 1px 1px 2px rgba(25, 16, 204, 0.1); 
-}
-
-/* Styling for paragraph tags */
-p {
-    font-size: 1.6rem; 
-    text-emphasis: bold;
-    line-height: 1.7; 
-    margin: 15px 0; 
+    font-size: 2.6rem;
+    margin: 20px 0;
+    color: #3b2f32;
+    font-family: 'Garamond', serif;
+    font-weight: 600;
     text-align: center;
-    color: #666; 
-    font-family: 'Open Sans', sans-serif; 
-    text-align: justify; 
-    padding: 0 20px; 
-    transition: color 0.3s ease; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
 }
 
-/* Hover Effect for Paragraphs */
+/* Paragraph Styling */
+p {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    margin: 15px 0;
+    text-align: justify;
+    color: #555;
+    font-family: 'Georgia', serif;
+    padding: 0 20px;
+    transition: color 0.3s ease;
+}
+
 p:hover {
-    color: #5921c7; 
+    color: #8b3d3c;
 }
 
 /* Structure Container */
-.structure {       
-    display: flex; 
-    flex-direction: column; 
-    gap: 60px; 
-    padding: 10px; 
+.structure {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 10px;
 }
 
 /* Role Card Styling */
 .role {
-    background: linear-gradient(
-        135deg,
-        rgba(228, 164, 164, 0.9), 
-        rgba(255, 200, 200, 0.9)
-    ); 
+    background: linear-gradient(135deg, rgba(255, 214, 214, 0.95), rgba(119, 95, 95, 0.6), rgba(255, 250, 245, 0.85));
     border-radius: 16px;
-    padding: 30px; 
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    padding: 35px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover Effects for Role Cards */
 .role:hover {
-    transform: translateY(-10px); 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); 
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
 /* Role Member Cards Container */
 .member-cards {
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 30px; 
-    justify-content: center; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
 }
 
 /* Member Card Styling */
 .member-card {
     text-align: center;
-    max-width: 350px; 
-    background-color: #e5f3ff; 
-    border-radius: 12px; 
-    padding: 20px; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    opacity: 1; /* Ensure the cards are visible */
-    position: relative; /* Needed for positioning the artistic element */
+    max-width: 340px;
+    background-color: #fbf6f3;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Member Card Hover Effect */
 .member-card:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); 
+    transform: scale(1.05);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
 }
 
 /* Artistic Element for Member Card */
@@ -183,33 +180,75 @@ p:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 204, 204, 0.2), rgba(255, 204, 204, 0.0));
-    border-radius: 12px; 
-    z-index: -1; /* Position it behind the content */
-    opacity: 0.8; /* Slightly transparent */
+    background: radial-gradient(circle at center, rgba(255, 130, 130, 0.5), rgba(255, 200, 100, 0.6), rgba(255, 160, 90, 0.8));
+    border-radius: 12px;
+    z-index: -1;
+    opacity: 0.9;
 }
 
 /* Member Photo Styling */
 .member-photo {
-    width: 90%; 
-    height: 70%; /* Ensure photo maintains aspect ratio */
+    width: 85%;
+    height: auto;
     border-radius: 100px;
-    margin-bottom: 15px; 
-    border: 4px solid #26089c; 
+    margin-bottom: 15px;
+    border: 4px solid #b36a6a;
 }
 
 /* Member Name Styling */
 .member-name {
-    font-size: 1.9rem; 
+    font-size: 1.8rem;
     margin: 10px 0;
-    color: #333; 
-    font-family: 'Poppins', sans-serif; 
-    font-weight: bold; 
+    color: #3e2b2c;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
 }
 
 .member-department {
-    font-size: 1.7rem; 
-    color: #555; 
+    font-size: 1.5rem;
+    color: #6a4a4b;
     line-height: 1.1;
     margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .committee-structure { padding: 40px; }
+    h3 { font-size: 2.4rem; }
+    h2 { font-size: 2.3rem; }
+    p { font-size: 1.4rem; }
+}
+
+@media (max-width: 992px) {
+    .committee-structure { padding: 30px; }
+    .favicon { font-size: 40px; width: 55px; height: 55px; }
+    h3 { font-size: 2.2rem; }
+    h2 { font-size: 2.1rem; }
+    p { font-size: 1.3rem; }
+    .member-card { max-width: 280px; }
+}
+
+@media (max-width: 768px) {
+    .structure { gap: 40px; }
+    h3 { font-size: 2rem; }
+    h2 { font-size: 1.9rem; }
+    p { font-size: 1.2rem; }
+    .member-card { max-width: 100%; padding: 20px; }
+}
+
+@media (max-width: 576px) {
+    .committee-structure { padding: 15px; }
+    h3 { font-size: 1.8rem; }
+    h2 { font-size: 1.7rem; }
+    p { font-size: 1rem; }
+    .member-photo { width: 75%; }
+}
+
+@media (max-width: 375px) {
+    .committee-structure { padding: 10px; }
+    h3 { font-size: 1.6rem; }
+    h2 { font-size: 1.6rem; }
+    p { font-size: 0.9rem; padding: 0 10px; }
+    .favicon { font-size: 32px; width: 40px; height: 40px; }
+    .role { padding: 20px; }
 }

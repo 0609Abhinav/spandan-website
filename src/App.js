@@ -5,6 +5,7 @@ import Events from './components/Events/Events'; // Adjust path as necessary
 import EventForm from '../src/components/Register/EventForm'; // Adjust path as necessary
 import RolesAndResponsibilities from '../src/components/roles/RolesAndResponsibilities'; // Ensure this is correct
 import CommitteeStructure from '../src/components/CommitteeStructure/CommitteeStructure'; // Ensure this is correct
+import Footer from '../src/components/Footer/footer'; // Adjust path to your Footer component
 
 const App = () => {
     return (
@@ -25,6 +26,7 @@ const App = () => {
             <section id="event-form">
                 <EventForm />
             </section>
+            <Footer /> {/* Add Footer component here */}
         </div>
     );
 };

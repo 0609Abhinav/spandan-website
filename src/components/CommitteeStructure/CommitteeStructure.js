@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaUserGraduate, FaChalkboardTeacher, FaCrown } from 'react-icons/fa';
+import { FaChalkboardTeacher, FaCrown } from 'react-icons/fa';
 import './CommitteeStructure.css'; 
 import photo1 from '../../assets/photo1.jpg';
 import photo2 from '../../assets/photo2.jpg';
@@ -19,12 +19,6 @@ const membersData = {
         { name: "Dr. Vinita Shukla", photo: photo5, department: "Department of Chemistry" },
         { name: "Dr. Rajni Dwivedi", photo: photo6, department: "Department of Physics" },
     ],
-    seniorMembers: [
-        { name: "Grace Lee", photo: "path/to/photo8.jpg", department: "Department of Geography" },
-    ],
-    juniorMembers: [
-        { name: "Jack Wilson", photo: "path/to/photo11.jpg", department: "Department of Computer Science" },
-    ]
 };
 
 const MemberCard = ({ member }) => (
@@ -70,18 +64,6 @@ const CommitteeStructure = () => (
                 description="Experienced members who guide and assist in organizing events."
                 members={membersData.organizationalMembers}
                 icon={<FaChalkboardTeacher className="icon text-4xl text-blue-600" />}
-            />
-            <CommitteeRoleSection 
-                title="Senior Members"
-                description="Experienced members who guide and assist in organizing events."
-                members={membersData.seniorMembers}
-                icon={<FaChalkboardTeacher className="icon text-4xl text-green-600" />}
-            />
-            <CommitteeRoleSection 
-                title="Junior Members"
-                description="New members who bring fresh ideas and assist in various tasks."
-                members={membersData.juniorMembers}
-                icon={<FaUserGraduate className="icon text-4xl text-purple-600" />}
             />
         </div>
     </section>

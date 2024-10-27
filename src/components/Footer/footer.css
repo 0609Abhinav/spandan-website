@@ -1,0 +1,209 @@
+/* Footer Section */
+.footer-section {
+    background: linear-gradient(135deg, #1a1a1a, #282c34); /* Gradient background */
+    color: #f0f0f0; /* Light text color */
+    padding: 60px 20px; /* Spacious padding */
+    text-align: center; /* Center text */
+    position: relative;
+    border-top: 4px solid #61dafb; /* Emphasized top border */
+}
+
+.footer-content {
+    max-width: 800px; /* Limit content width */
+    margin: 0 auto; /* Center the content */
+    animation: fadeIn 0.5s ease; /* Smooth fade-in animation */
+}
+
+.footer-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; /* Larger heading */
+    margin-bottom: 20px; /* Increased space below */
+    letter-spacing: 1px;
+    color: #61dafb; /* Heading color */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+.footer-details {
+    display: flex; /* Flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    margin: 30px 0; /* Space around */
+}
+
+.text-content {
+    margin-left: 20px; /* Space between photo and text */
+}
+
+.footer-content p {
+    font-size: 1.2rem; /* Adjusted text size */
+    margin: 5px 0;
+    animation: slideIn 0.5s ease forwards; /* Slide-in animation */
+    opacity: 0;
+    color: #d3d3d3;
+}
+
+/* Staggered animation delay */
+.footer-content p:nth-child(n + 2) {
+    animation-delay: 0.2s;
+}
+
+.footer-content p:nth-child(n + 3) {
+    animation-delay: 0.4s;
+}
+
+.footer-content p:nth-child(n + 4) {
+    animation-delay: 0.6s;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.social-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+/* Specific Colors for Icons */
+.social-icon.whatsapp {
+    color: #25D366;
+    background-color: rgba(37, 211, 102, 0.2);
+}
+
+.social-icon.linkedin {
+    color: #0077b5;
+    background-color: rgba(0, 119, 181, 0.2);
+}
+
+.social-icon.instagram {
+    color: #C13584;
+    background-color: rgba(197, 53, 132, 0.2);
+}
+
+/* Hover Effect */
+.social-icon:hover {
+    transform: translateY(-5px) rotate(10deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Profile Photo Styling */
+.photo-container {
+    position: relative;
+    display: flex; /* Flexbox for the photo container */
+    justify-content: center;
+    align-items: center;
+    margin: 0; /* Adjusted margin */
+    animation: scaleIn 0.5s ease;
+}
+
+.profile-photo {
+    width: 120px; /* Set a fixed width */
+    height: 120px; /* Set a fixed height */
+    border-radius: 50%; /* Circular photo */
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+    .footer-content h3 {
+        font-size: 2.4rem;
+    }
+    .footer-content p {
+        font-size: 1.1rem;
+    }
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer-section {
+        padding: 40px 15px;
+    }
+    .footer-content h3 {
+        font-size: 2rem;
+    }
+    .footer-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .social-icon {
+        width: 45px;
+        height: 45px;
+    }
+    .footer-content h3 {
+        font-size: 1.8rem;
+    }
+    .footer-content p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-section {
+        padding: 20px 10px;
+    }
+    .footer-content h3 {
+        font-size: 1.6rem;
+    }
+    .footer-content p {
+        font-size: 0.8rem;
+    }
+    .social-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
