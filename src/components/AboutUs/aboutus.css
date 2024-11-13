@@ -7,37 +7,28 @@
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  animation: fadeIn 1s ease-in; /* Add a fade-in effect */
+  animation: fadeIn 1s ease-in;
 }
 
-.about-section::before {
-  content: '';
+/* Background logo container */
+.logo-background {
   position: absolute;
-  top: -50px;
-  left: -50px;
-  width: 200px;
-  height: 200px;
-  background-color: #ff6b6b;
-  border-radius: 50%;
-  opacity: 0.3;
-  z-index: 1;
+  top: 50%; /* Center the logo vertically */
+  left: 50%; /* Center the logo horizontally */
+  transform: translate(-50%, -50%); /* Center the logo perfectly */
+  width: 100%; /* Adjust width for better responsiveness */
+  height: 100%; /* Keep height proportional */
+  background-image: url('../../assets/logo.png'); /* Background logo */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1; /* Semi-transparent background */
+  z-index: -1; /* Place behind the content */
 }
 
-.about-section::after {
-  content: '';
-  position: absolute;
-  bottom: -50px;
-  right: -50px;
-  width: 200px;
-  height: 200px;
-  background-color: #48c6ef;
-  border-radius: 50%;
-  opacity: 0.3;
-  z-index: 1;
-}
-
+/* About content styling */
 .about-content {
-  max-width: 800px;
+  max-width: 900px;
   text-align: center;
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.85);
@@ -45,23 +36,6 @@
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
   position: relative;
   z-index: 2;
-  overflow: hidden; /* Prevents overflow of logo background */
-}
-
-/* Logo as background for the content */
-.about-content::before {
-  content: '';
-  position: absolute;
-  align-content: center;
-  top: 0;
-  left: 0;
-  width: 100%; /* Change to 100% for responsiveness */
-  height: 100%; /* Change to 100% for responsiveness */
-  background-image: url('../../assets/logo.png'); /* Set logo as background image */
-  background-size: contain; /* Ensure the image scales while maintaining aspect ratio */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  opacity: 0.2; /* Adjust transparency */
-  z-index: -1; /* Place behind other content */
 }
 
 .about-content h2 {
@@ -92,10 +66,16 @@
   margin-bottom: 30px;
 }
 
+/* Inline logo styling */
 .about-logo {
-  margin-top: 30px; /* Spacing above the logo */
-  max-width: 250px; /* Set a max-width for the logo */
-  animation: bounce 1.5s infinite; /* Add bounce animation */
+  margin-top: 30px;
+  max-width: 100%; /* Ensure it adapts to screen size */
+  width: 70%; /* Make it more flexible for medium to large screens */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
 }
 
 /* Keyframes for animations */
@@ -108,26 +88,36 @@
   }
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
-
-.about-logo {
-  display: block; /* Make it a block element */
-  margin: 20px auto; /* Center the logo */
-  max-width: 200px; /* Limit max width */
-  opacity: 1; /* Keep full opacity for the logo image */
-}
-
 /* Responsive styles */
+@media (max-width: 1024px) {
+  .about-section {
+    padding: 80px 10px;
+  }
+
+  .about-content {
+    padding: 30px;
+  }
+
+  .about-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .about-content p {
+    font-size: 1.2rem;
+  }
+
+  /* Adjust the background logo size on smaller screens */
+  .logo-background {
+    width: 70%;
+    height: 70%;
+  }
+
+  .about-logo {
+    width: 60%; /* Adjust width for larger tablets and small screens */
+    max-width: 80%; /* Limit maximum width */
+  }
+}
+
 @media (max-width: 768px) {
   .about-section {
     padding: 80px 10px;
@@ -138,15 +128,22 @@
   }
 
   .about-content h2 {
-    font-size: 2.5rem; /* Reduce heading size for smaller screens */
+    font-size: 2.2rem;
   }
 
   .about-content p {
-    font-size: 1.2rem; /* Reduce paragraph size for smaller screens */
+    font-size: 1.1rem;
+  }
+
+  /* Adjust background logo size for smaller tablets and mobile */
+  .logo-background {
+    width: 75%;
+    height: 75%;
   }
 
   .about-logo {
-    max-width: 180px; /* Reduce logo size for smaller screens */
+    width: 90%; /* Smaller width for the inline logo */
+    max-width: 70%; /* Limit the maximum width to avoid overflow */
   }
 }
 
@@ -156,14 +153,21 @@
   }
 
   .about-content h2 {
-    font-size: 2rem; /* Further reduce heading size */
+    font-size: 2rem;
   }
 
   .about-content p {
-    font-size: 1rem; /* Further reduce paragraph size */
+    font-size: 1rem;
+  }
+
+  /* Further adjust background logo size for mobile */
+  .logo-background {
+    width: 90%;
+    height: 80%;
   }
 
   .about-logo {
-    max-width: 150px; /* Further reduce logo size */
+    width: 70%; /* Further adjust inline logo size for smaller devices */
+    max-width: 60%; /* Limit the maximum width */
   }
 }

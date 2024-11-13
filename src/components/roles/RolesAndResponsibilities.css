@@ -1,17 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Google Fonts */
 
 .roles-responsibilities {
-    height: 50%; /* Full height */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    animation: gradientAnimation 15s ease infinite; /* Animate the background */
     background: linear-gradient(270deg, #ff8a00, #e52e71, #ff6a00, #d74f93);
-    background-size: 400% 400%; /* Size for smooth transition */
-    font-family: 'Roboto', sans-serif; /* Use the new font */
-    padding: 20px; /* Padding for smaller screens */
+    background-size: 400% 400%; /* For smooth animation */
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    animation: gradientAnimation 15s ease infinite; /* Background animation */
 }
 
 @keyframes gradientAnimation {
@@ -27,78 +26,72 @@
 }
 
 .overlay {
-    background-color: rgba(255, 255, 255, 0.85); /* Light overlay for better text contrast */
+    background-color: rgba(255, 255, 255, 0.85);
     padding: 40px;
-    border-radius: 20px; /* Rounded corners */
+    border-radius: 20px;
     text-align: center;
-    color: #333; /* Text color */
-    width: 90%; /* Width adjustment */
-    max-width: 800px; /* Max width for larger screens */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-    transition: transform 0.3s; /* Transition for hover effect */
+    color: #333;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
 }
 
 .overlay:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05);
 }
 
 h3 {
-    font-size: 2.5rem; /* Title size */
+    font-size: 2.5rem;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow for title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .content {
-    line-height: 1.6; /* Spacing between lines */
-    font-size: 1.1rem; /* Base font size */
-    text-align: left; /* Align text left for readability */
-    margin-top: 20px; /* Space above content */
+    line-height: 1.6;
+    font-size: 1.1rem;
+    text-align: left;
+    margin-top: 20px;
 }
 
 .sub-content {
-    margin-left: 20px; /* Indent for sub-points */
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
+    margin-left: 20px;
+    list-style-type: none;
+    padding: 0;
 }
 
 .sub-content p {
-    position: relative; /* For custom bullets */
-    padding-left: 1.5rem; /* Space for custom bullet */
-    margin-bottom: 10px; /* Space between items */
-    font-size: 1rem; /* Font size for sub-points */
-    color: #1500ff; /* Adjusted color for better visibility */
-    transition: color 0.3s; /* Transition for hover effect */
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #1500ff;
+    transition: color 0.3s;
 }
 
 .sub-content p:hover {
-    color: #fd0202; /* Lighten color on hover */
+    color: #fd0202;
 }
 
 .sub-content p::before {
-    content: '✦'; /* Custom bullet */
+    content: '✦';
     position: absolute;
-    left: 0; /* Position bullet */
-    color: #ff8a00; /* Bullet color */
-    font-size: 1.5rem; /* Bullet size */
-}
-
-/* Add styles for icons and images */
-.icon {
-    width: 50px; /* Size of the icons */
-    margin: 20px 10px; /* Spacing around icons */
+    left: 0;
+    color: #ff8a00;
+    font-size: 1.5rem;
 }
 
 .image-container {
-    display: flex; /* Display images in a row */
-    justify-content: center; /* Center images */
-    margin-top: 20px; /* Space above images */
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
 }
 
 .image-container img {
-    width: 60px; /* Set size for images */
-    margin: 0 10px; /* Space between images */
-    animation: bounce 1s infinite; /* Animation effect for images */
+    width: 40px; /* Ensure the size is correct */
+    margin: 0 10px;
+    animation: bounce 1s infinite;
 }
 
 @keyframes bounce {
@@ -115,42 +108,33 @@ h3 {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .roles-responsibilities {
-        height: auto; /* Allow height to adjust */
-        padding: 10px; /* Reduce padding */
-    }
-
     h3 {
-        font-size: 2rem; /* Smaller title size for mobile */
+        font-size: 2rem;
     }
 
     .overlay {
-        padding: 20px; /* Reduce padding on overlay */
+        padding: 20px;
     }
 
     .content {
-        font-size: 1rem; /* Smaller font size for mobile */
+        font-size: 1rem;
     }
 
     .sub-content p {
-        font-size: 0.9rem; /* Smaller font size for sub-points */
-    }
-
-    .icon {
-        width: 40px; /* Smaller icons for mobile */
+        font-size: 0.9rem;
     }
 
     .image-container img {
-        width: 50px; /* Smaller images for mobile */
+        width: 30px; /* Adjust image size for mobile */
     }
 }
 
 @media (max-width: 480px) {
     h3 {
-        font-size: 1.5rem; /* Title size for very small screens */
+        font-size: 1.5rem;
     }
 
     .overlay {
-        width: 100%; /* Full width for smaller screens */
+        width: 100%;
     }
-};
+}
