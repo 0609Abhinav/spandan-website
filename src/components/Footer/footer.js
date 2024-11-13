@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLinkedin, FaWhatsapp, FaInstagram } from 'react-icons/fa'; // Import icons
+import { FaLinkedin, FaWhatsapp, FaInstagram,FaFacebook } from 'react-icons/fa'; // Import icons
 import './footer.css';
 import abhiImage from '../../assets/abhi.jpg'; // Adjust the path according to your structure
 
@@ -35,7 +35,7 @@ const Footer = () => {
             <FaWhatsapp />
           </a>
           <a
-            href="https://www.linkedin.com/in/your-linkedin-id"
+            href="https://www.linkedin.com/in/abhinav-tripathi-770224253/"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon linkedin"
@@ -43,12 +43,20 @@ const Footer = () => {
             <FaLinkedin />
           </a>
           <a
-            href="https://www.instagram.com/your-instagram-id"
+            href="https://www.instagram.com/_abhinavtripathi/"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon instagram"
           >
             <FaInstagram />
+          </a>
+          <a
+            href="https://www.facebook.com/abhinav2017"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon facebook"
+          >
+            <FaFacebook />
           </a>
         </div>
       </div>

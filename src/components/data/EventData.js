@@ -1,12 +1,19 @@
 // src/data/eventsData.js
+import photo1 from '../../assets/photo1.jpg';
+import photo2 from '../../assets/photo2.jpg';
+import photo3 from '../../assets/photo3.jpg';
+
+
 export const eventsData = [
   {
     id: 1,
     title: "Graphite Symphony",
     description: "Sketching",
     images: [
-      "https://via.placeholder.com/300x200?text=Graphite+Symphony+1",
-      "https://via.placeholder.com/300x200?text=Graphite+Symphony+2",
+      photo1,
+      photo2,
+      photo3,
+      
     ],
   },
   {

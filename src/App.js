@@ -7,6 +7,7 @@ import RolesAndResponsibilities from './components/roles/RolesAndResponsibilitie
 import CommitteeStructure from './components/CommitteeStructure/CommitteeStructure'; // Ensure this is correct
 import Footer from './components/Footer/footer'; // Adjust path to your Footer component
 import EventGallery from './components/EventGallery/EventGallery'; // Import EventGallery component
+import FloatingSocialIcon from './components/FloatingSocialIcon/FloatingSocialIcon';
 
 const App = () => {
     return (
@@ -38,6 +39,7 @@ const App = () => {
             </section>
             
             <Footer /> {/* Add Footer component here */}
+            <FloatingSocialIcon />
         </div>
     );
 };

@@ -63,7 +63,7 @@ const Navbar = () => {
                         <Link to="events" smooth={true} duration={500} onClick={closeMenu}>Events</Link>
                     </li>
                     <li>
-                        <Link to="gallery" smooth={true} duration={500} onClick={closeMenu}>Gallery</Link>
+                        <Link to="event-gallery" smooth={true} duration={500} onClick={closeMenu}>Gallery</Link>
                     </li>
                     <li>
                         <Link to="event-form" smooth={true} duration={500} onClick={closeMenu}>Register</Link>

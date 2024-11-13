@@ -1,0 +1,40 @@
+.floating-icon {
+  z-index: 1000;
+  transition: all 0.3s ease;
+  font-size: 2.5rem; /* Default size for larger screens */
+}
+
+.floating-icon:hover {
+  transform: translateY(-10px); /* Slight hover effect */
+}
+
+.join-us-container {
+  text-align: center;
+}
+
+.arrow-container {
+  font-size: 2rem;
+  animation: bounce 1s infinite alternate; /* Bouncing arrow animation */
+}
+
+/* Arrow bounce animation */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+/* Media Query for Mobile View */
+@media (max-width: 768px) {
+  .floating-icon {
+    font-size: 1.1rem; /* Smaller size for mobile devices */
+  }
+
+  .arrow-container {
+    font-size: 1.1rem; /* Adjust arrow size for mobile */
+  }
+}
+
