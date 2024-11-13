@@ -17,19 +17,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 65px;
 }
 
 /* Favicon Styling */
 .favicon {
-    font-size: 50px;
-    width: 65px;
-    height: 65px;
+    font-size: 51px;
+    width: 75px;
+    height: 75px;
     color: #e35d5b;
     transition: transform 0.4s ease, color 0.3s ease;
     border: 2px solid rgba(227, 93, 91, 0.2);
     border-radius: 50%;
-    padding: 10px;
+    padding: 0;
     box-shadow: 0 10px 20px rgba(227, 93, 91, 0.3);
 }
 
@@ -78,9 +78,9 @@
 /* Headings Styling */
 h3 {
     text-align: center;
-    margin-bottom: 30px;
+    margin: 30px;
     font-size: 2.8rem;
-    color: #9b3838;
+    color: #1d09f4;
     font-family: 'Georgia', serif;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -99,7 +99,7 @@ h3::after {
 h2 {
     font-size: 2.6rem;
     margin: 20px 0;
-    color: #3b2f32;
+    color: #1d62d1;
     font-family: 'Garamond', serif;
     font-weight: 600;
     text-align: center;
@@ -112,7 +112,8 @@ p {
     line-height: 1.8;
     margin: 15px 0;
     text-align: justify;
-    color: #555;
+    color: #ffffff;
+    text-decoration: blueviolet;
     font-family: 'Georgia', serif;
     padding: 0 20px;
     transition: color 0.3s ease;
@@ -132,7 +133,6 @@ p:hover {
 
 /* Role Card Styling */
 .role {
-    background: linear-gradient(135deg, rgba(255, 214, 214, 0.95), rgba(119, 95, 95, 0.6), rgba(255, 250, 245, 0.85));
     border-radius: 16px;
     padding: 35px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);

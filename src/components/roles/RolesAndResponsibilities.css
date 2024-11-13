@@ -11,6 +11,7 @@
     font-family: 'Roboto', sans-serif;
     padding: 20px;
     animation: gradientAnimation 15s ease infinite; /* Background animation */
+    flex-direction: column; /* Ensure items are stacked on smaller screens */
 }
 
 @keyframes gradientAnimation {
@@ -35,6 +36,7 @@
     max-width: 1000px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s;
+    margin-bottom: 30px; /* Add some space below the overlay */
 }
 
 .overlay:hover {
@@ -85,12 +87,12 @@ h3 {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    
+    gap: 20px; /* Add space between icons */
 }
 
 .image-container img {
-    width: 40px; /* Ensure the size is correct */
-    margin: 0 10px;
+    width: 50px; /* Default icon size */
+    height: auto;
     animation: bounce 1s infinite;
 }
 
@@ -107,6 +109,32 @@ h3 {
 }
 
 /* Responsive Styles */
+@media (max-width: 1024px) {
+    .roles-responsibilities {
+        padding: 20px;
+    }
+
+    h3 {
+        font-size: 2.2rem;
+    }
+
+    .overlay {
+        padding: 30px;
+    }
+
+    .content {
+        font-size: 1.05rem;
+    }
+
+    .sub-content p {
+        font-size: 1rem;
+    }
+
+    .image-container img {
+        width: 45px; /* Adjust icon size for tablets */
+    }
+}
+
 @media (max-width: 768px) {
     h3 {
         font-size: 2rem;
@@ -125,7 +153,7 @@ h3 {
     }
 
     .image-container img {
-        width: 30px; /* Adjust image size for mobile */
+        width: 40px; /* Adjust image size for smaller tablets */
     }
 }
 
@@ -136,5 +164,18 @@ h3 {
 
     .overlay {
         width: 100%;
+        padding: 15px;
+    }
+
+    .content {
+        font-size: 0.95rem;
+    }
+
+    .sub-content p {
+        font-size: 0.85rem;
+    }
+
+    .image-container img {
+        width: 35px; /* Smaller icons for mobile */
     }
 }
