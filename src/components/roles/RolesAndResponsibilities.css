@@ -31,12 +31,11 @@
     padding: 40px;
     border-radius: 20px;
     text-align: center;
-    color: #333;
     width: 100%;
     max-width: 1000px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s;
-    margin-bottom: 30px; /* Add some space below the overlay */
+    margin: 30px; /* Add some space below the overlay */
 }
 
 .overlay:hover {
@@ -46,28 +45,30 @@
 h3 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: navy;
+    text-shadow: 2px 2px 4px rgba(209, 32, 32, 0.3);
 }
 
-.content {
-    line-height: 1.6;
-    font-size: 1.1rem;
+.content p {
+    line-height: 1.8;
+    font-size: 1.3rem;
     text-align: left;
     margin-top: 20px;
+    color: rgba(58, 52, 50, 0.616);
 }
 
-.sub-content {
-    margin-left: 20px;
+.sub-content p {
+    margin-left: 50px;
     list-style-type: none;
     padding: 0;
 }
 
 .sub-content p {
     position: relative;
-    padding-left: 1.5rem;
+    padding-left: 1.9rem;
     margin-bottom: 10px;
     font-size: 1rem;
-    color: #1500ff;
+    color: #4046f6;
     transition: color 0.3s;
 }
 

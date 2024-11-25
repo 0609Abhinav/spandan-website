@@ -14,12 +14,12 @@ const RolesAndResponsibilities = () => {
           <p>They plan and schedule fine arts events for the academic year, including tentative dates in the academic calendar.</p>
           <p>They prepare budgets for all fine arts events and obtain necessary approvals.</p>
           <p>Conduct meetings to discuss and delegate tasks effectively.</p>
-          <p>Organize fine arts events by:</p>
+          <p>Organize fine arts events by:- </p>
           <div className="sub-content">
-            <p>Preparing the annual budget for various events.</p>
-            <p>Obtaining formal permission from college authorities.</p>
-            <p>Deciding the date, time, and agenda of the program.</p>
-            <p>Informing staff and students about the events.</p>
+              <p>Preparing the annual budget for various events.</p>
+             <p>Obtaining formal permission from college authorities.</p>
+              <p>Deciding the date, time, and agenda of the program.</p>
+              <p>Informing staff and students about the events.</p>
             <p>Arranging the venue and logistics (audio/video system, dais, podium, etc.).</p>
             <p>Inviting chief guests and dignitaries.</p>
             <p>Arranging mementos for guests and gifts/certificates for participants.</p>

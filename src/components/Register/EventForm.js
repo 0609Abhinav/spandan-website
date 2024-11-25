@@ -10,7 +10,7 @@ const GoogleFormEmbed = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
         >
-            <h3 className="text-2xl font-bold mb-4 text-center">Feedback Form</h3>
+            <h3 className="text-2xl font-bold mb-4 text-center">Registration Form</h3>
             <iframe
                 src="https://docs.google.com/forms/d/e/1FAIpQLSfF2-R6dIIcvGLuPMWGLr84O-nVlKVsFhv20FUtFHPlU4UQhQ/viewform?embedded=true"
                 title="Google Form for Event Feedback"

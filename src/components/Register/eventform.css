@@ -56,13 +56,14 @@
 
 /* Title Style with Shimmer */
 .google-form-embed h3 {
-    background: linear-gradient(90deg, rgba(10, 33, 207, 0.816) 0%, rgba(17, 164, 201, 0.877) 50%, rgba(228, 244, 7, 0.866) 100%);
+    background: linear-gradient(90deg, rgb(254, 254, 255) 0%, rgb(0, 203, 254) 50%, rgba(245, 245, 245, 0.866) 100%);
     background-size: 200%;
     animation: shimmer 2s infinite;
-    -webkit-background-clip: text;
+    background-clip: text; /* Standard property */
+    -webkit-background-clip: text; /* Vendor-prefixed property for WebKit browsers */
     color: transparent;
     font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
+    font-size: 2.5rem;
     z-index: 1;
     position: relative;
     text-align: center;

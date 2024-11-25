@@ -34,5 +34,14 @@ export const eventsData = [
       "https://via.placeholder.com/300x200?text=Photo+Fiesta+2",
     ],
   },
+  {
+    id: 4,
+    title: "Mehendi Magic",
+    description: "Mehendi",
+    images: [
+      "https://via.placeholder.com/300x200?text=Mehendi+Magic+1",
+      "https://via.placeholder.com/300x200?text=Photo+Fiesta+2",
+    ],
+  },
   // Add more event objects as needed
 ];

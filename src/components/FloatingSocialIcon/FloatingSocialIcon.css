@@ -1,7 +1,7 @@
 .floating-icon {
   z-index: 1000;
   transition: all 0.3s ease;
-  font-size: 2.5rem; /* Default size for larger screens */
+  font-size: 1rem; /* Default size for larger screens */
 }
 
 .floating-icon:hover {
@@ -13,7 +13,7 @@
 }
 
 .arrow-container {
-  font-size: 2rem;
+  font-size: 1rem;
   animation: bounce 1s infinite alternate; /* Bouncing arrow animation */
 }
 
@@ -27,14 +27,26 @@
   }
 }
 
-/* Media Query for Mobile View */
-@media (max-width: 768px) {
+/* Responsive Design Adjustments */
+/* Medium screens: Tablets and smaller laptops */
+@media (max-width: 1024px) {
   .floating-icon {
-    font-size: 1.1rem; /* Smaller size for mobile devices */
+    font-size: 1.4rem;
   }
 
   .arrow-container {
-    font-size: 1.1rem; /* Adjust arrow size for mobile */
+    font-size: 1.2rem;
   }
 }
+/* Small screens: Large phones and small tablets */
+@media (max-width: 768px) {
+  .floating-icon {
+    font-size: 0.7rem;
+  }
+
+  .arrow-container {
+    font-size: 0.5rem;
+  }
+}
+
 
