@@ -1,7 +1,7 @@
 /* General styling */
 .events-section {
     padding: 60px 15px;
-    background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+    /*background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);*/
     background-attachment: fixed; /* Parallax scrolling effect */
     color: #333; /* Dark text for better contrast */
     font-family: 'Roboto', sans-serif;
@@ -9,21 +9,25 @@
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+    background: url('../../assets/background5.jpg') no-repeat center center/cover
 }
 
 /* Title styling */
 .events-title {
     font-size: 3rem;
     margin-bottom: 30px;
-    color: #002aff;
+    color: #ea0a0a;
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
     animation: fadeInDown 1.2s ease-out;
+}
+event-info{
+    color: #f0f0f0;
 }
 
 /* Event description styling */
 .event-description {
     font-size: 1.4rem;
-    color: #150eeb;
+    color: #f0f0f0;
     margin-bottom: 10px;
     text-align: center;
     animation: slideInLeft 1.5s ease-out;
@@ -63,7 +67,7 @@
 .event-icon {
     font-size: 4.5rem;
     margin-bottom: 20px;
-    color: #4a148c;
+    color: #934673;
     animation: bounce 1.3s infinite;
     position: relative;
     z-index: 1;

@@ -37,7 +37,7 @@ const Events = () => {
                             {event.icon}
                         </div>
                         <div className="event-info">
-                            <h3 className="event-title">
+                            <h3 className="event-title text-white ">
                                 {event.title}
                             </h3>
                             <p className="event-description">
