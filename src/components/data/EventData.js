@@ -1,150 +1,92 @@
-import photo1 from '../../assets/photo1.jpg';
-import photo2 from '../../assets/photo2.jpg';
-import photo3 from '../../assets/photo3.jpg';
-import m1 from '../../assets/Mehendi_Magic/m1.JPG';
-import m2 from '../../assets/Mehendi_Magic/m2.JPG';
-import m3 from '../../assets/Mehendi_Magic/m3.JPG';
-import m4 from '../../assets/Mehendi_Magic/m4.JPG';
-import m5 from '../../assets/Mehendi_Magic/m5.JPG';
-import m6 from '../../assets/Mehendi_Magic/m6.JPG';
-import m7 from '../../assets/Mehendi_Magic/m7.JPG';
-import m8 from '../../assets/Mehendi_Magic/m8.JPG';
-import m9 from '../../assets/Mehendi_Magic/m9.JPG';
-import m10 from '../../assets/Mehendi_Magic/m10.JPG';
-import m11 from '../../assets/Mehendi_Magic/m11.JPG';
+// Dynamic image importer helper function
+const importAll = (r) => r.keys().map(r);
 
+// Import images dynamically for each event
+const mehendiMagic = importAll(require.context('../../assets/Mehendi_Magic', false, /\.(jpg|jpeg|png|gif|JPG)$/));
+const bestOutOfWaste = importAll(require.context('../../assets/Best_Out_Of_Waste', false, /\.(jpg|jpeg|png|gif|JPG)$/));
+const clayModelling = importAll(require.context('../../assets/Clay_Modlling', false, /\.(jpg|jpeg|png|gif|JPG)$/));
+const sketching = importAll(require.context('../../assets/Sketching', false, /\.(jpg|jpeg|png|gif|JPG)$/));
+const collageMaking = importAll(require.context('../../assets/Collage_Making', false, /\.(jpg|jpeg|png|gif|JPG)$/));
+const designThroughPaper = importAll(require.context('../../assets/Design_Through_Paper', false, /\.(jpg|jpeg|png|gif|JPG)$/));
+const facePainting = importAll(require.context('../../assets/Face_Painting', false, /\.(jpg|jpeg|png|gif|JPG)$/));
+const wallPainting = importAll(require.context('../../assets/Wall_Painting', false, /\.(jpg|jpeg|png|gif|JPG)$/));
+const tattooMaking = importAll(require.context('../../assets/Tattoo_Making', false, /\.(jpg|jpeg|png|gif|JPG)$/));
+const painting = importAll(require.context('../../assets/Painting', false, /\.(jpg|jpeg|png|gif|JPG)$/));
+const rangoli = importAll(require.context('../../assets/Rangoli', false, /\.(jpg|jpeg|png|gif|JPG)$/));
+const trashToTreasure = importAll(require.context('../../assets/Trash_to_Tresure', false, /\.(jpg|jpeg|png|gif|JPG)$/));
 
-
-
-
+// Event data
 export const eventsData = [
   {
     id: 1,
     title: "Graphite Symphony",
     description: "Sketching",
-    images: [photo1, photo2, photo3],
+    images: sketching,
   },
   {
     id: 2,
     title: "Creative Cluster",
     description: "Collage Making",
-    images: [
-      "https://via.placeholder.com/300x200?text=Creative+Cluster+1",
-      "https://via.placeholder.com/300x200?text=Creative+Cluster+2",
-    ],
+    images: collageMaking,
   },
   {
     id: 3,
-    title: "Photo Fiesta",
-    description: "Photography",
-    images: [
-      "https://via.placeholder.com/300x200?text=Photo+Fiesta+1",
-      "https://via.placeholder.com/300x200?text=Photo+Fiesta+2",
-    ],
+    title: "Mehendi Magic",
+    description: "Mehendi",
+    images: mehendiMagic,
   },
   {
     id: 4,
-    title: "Mehendi Magic",
-    description: "Mehendi",
-    images: [m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11],
+    title: "Crease and Create",
+    description: "Design Through Paper",
+    images: designThroughPaper,
   },
   {
     id: 5,
-    title: "Crease and Create",
-    description: "Design Through Paper",
-    images: [
-      "https://via.placeholder.com/300x200?text=Crease+and+Create+1",
-      "https://via.placeholder.com/300x200?text=Crease+and+Create+2",
-    ],
+    title: "Whimsical Mask and Face Painting",
+    description: "Face Painting and Mask Painting",
+    images: facePainting,
   },
   {
     id: 6,
     title: "Moulded Magic",
     description: "Clay Modelling",
-    images: [
-      "https://via.placeholder.com/300x200?text=Moulded+Magic+1",
-      "https://via.placeholder.com/300x200?text=Moulded+Magic+2",
-    ],
+    images: clayModelling,
   },
   {
     id: 7,
     title: "Brushstrokes and Beyond",
     description: "Painting",
-    images: [
-      "https://via.placeholder.com/300x200?text=Brushstrokes+and+Beyond+1",
-      "https://via.placeholder.com/300x200?text=Brushstrokes+and+Beyond+2",
-    ],
+    images: painting,
   },
   {
     id: 8,
-    title: "Ecoelegance",
-    description: "Bamboo Structure",
-    images: [
-      "https://via.placeholder.com/300x200?text=Ecoelegance+1",
-      "https://via.placeholder.com/300x200?text=Ecoelegance+2",
-    ],
+    title: "Trash to Treasure",
+    description: "Best Out From Waste",
+    images: trashToTreasure,
   },
   {
     id: 9,
     title: "Waste to Wow",
     description: "Best out of Waste",
-    images: [
-      "https://via.placeholder.com/300x200?text=Waste+to+Wow+1",
-      "https://via.placeholder.com/300x200?text=Waste+to+Wow+2",
-    ],
+    images: bestOutOfWaste,
   },
   {
     id: 10,
     title: "Concrete Canvas",
     description: "Wall Painting",
-    images: [
-      "https://via.placeholder.com/300x200?text=Concrete+Canvas+1",
-      "https://via.placeholder.com/300x200?text=Concrete+Canvas+2",
-    ],
+    images: wallPainting,
   },
   {
     id: 11,
-    title: "Melodic Breezes",
-    description: "Wind Chime",
-    images: [
-      "https://via.placeholder.com/300x200?text=Melodic+Breezes+1",
-      "https://via.placeholder.com/300x200?text=Melodic+Breezes+2",
-    ],
+    title: "Inkfluence",
+    description: "Tattoo Making",
+    images: tattooMaking,
   },
   {
     id: 12,
-    title: "Inkfluence",
-    description: "Tattoo Making",
-    images: [
-      "https://via.placeholder.com/300x200?text=Inkfluence+1",
-      "https://via.placeholder.com/300x200?text=Inkfluence+2",
-    ],
-  },
-  {
-    id: 13,
     title: "Colourful Creations",
     description: "Rangoli",
-    images: [
-      "https://via.placeholder.com/300x200?text=Colourful+Creations+1",
-      "https://via.placeholder.com/300x200?text=Colourful+Creations+2",
-    ],
-  },
-  {
-    id: 14,
-    title: "Masked Magic",
-    description: "Mask Painting",
-    images: [
-      "https://via.placeholder.com/300x200?text=Masked+Magic+1",
-      "https://via.placeholder.com/300x200?text=Masked+Magic+2",
-    ],
-  },
-  {
-    id: 15,
-    title: "Whimsical Faces",
-    description: "Face Painting",
-    images: [
-      "https://via.placeholder.com/300x200?text=Whimsical+Faces+1",
-      "https://via.placeholder.com/300x200?text=Whimsical+Faces+2",
-    ],
+    images: rangoli,
   },
 ];
