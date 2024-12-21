@@ -130,7 +130,7 @@ const EventGallery = () => {
               className="absolute top-4 right-4 bg-red-500 text-white rounded-full p-2 hover:bg-red-600 transition transform hover:scale-110 z-10"
               onClick={closeModal}
             >
-              <FaTimes size={18} />
+              <FaTimes size={20} />
             </button>
             <h3 className="text-3xl font-bold text-white text-center mb-4">
               {selectedEvent.title}
@@ -145,7 +145,7 @@ const EventGallery = () => {
               <img
                 src={selectedEvent.images[currentImageIndex]}
                 alt={`${selectedEvent.title} ${currentImageIndex + 1}`}
-                className="max-w-full max-h-[60vh] object-contain rounded-lg shadow-md mx-4"
+                className="max-w-full max-h-[40vh] object-contain rounded-lg shadow-md mx-4"
               />
               <button
                 className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 p-3 rounded-full transition"
