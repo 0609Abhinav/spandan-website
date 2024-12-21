@@ -32,7 +32,7 @@
 /* Grid layout */
 .grid {
   display: grid;
-  gap: 1.8rem;
+  gap: 2 rem;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Responsive grid layout */
   margin: auto;
 }
@@ -112,9 +112,9 @@
 
 /* Modal styling */
 .modal-image {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
+  width: 70%;
+  max-height: 200px;
+  object-fit: relative;
   border-radius: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
