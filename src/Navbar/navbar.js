@@ -59,9 +59,7 @@ const Navbar = () => {
                     <li>
                         <Link to="committee-structure" smooth={true} duration={500} onClick={closeMenu}>Committee</Link>
                     </li>
-                    <li>
-                        <Link to="events" smooth={true} duration={500} onClick={closeMenu}>Events</Link>
-                    </li>
+                
                     <li>
                         <Link to="event-gallery" smooth={true} duration={500} onClick={closeMenu}>Gallery</Link>
                     </li>

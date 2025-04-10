@@ -4,7 +4,7 @@ import './CommitteeStructure.css';
 import photo1 from '../../assets/photo1.jpg';
 import photo2 from '../../assets/photo2.jpg';
 import photo3 from '../../assets/photo3.jpg';
-import photo4 from '../../assets/photo4.jpg';
+// import photo4 from '../../assets/photo4.jpg';
 import photo5 from '../../assets/photo5.jpg';
 import photo6 from '../../assets/photo6.jpg';
 
@@ -15,7 +15,7 @@ const membersData = {
     organizationalMembers: [
         { name: "Ms. Deepmala", photo: photo2, department: "Department of Electronics and Communication" },
         { name: "Dr. Akanshi Gupta", photo: photo3, department: "Department of MBA" },
-        { name: "Dr. Saloni Singh", photo: photo4, department: "Department of Chemistry" },
+        // { name: "Dr. Saloni Singh", photo: photo4, department: "Department of Chemistry" },
         { name: "Dr. Vinita Shukla", photo: photo5, department: "Department of Chemistry" },
         { name: "Dr. Rajni Dwivedi", photo: photo6, department: "Department of Physics" },
     ],
@@ -51,7 +51,7 @@ const CommitteeStructure = () => (
             <span className="favicon">🖼️</span>
         </div>
 
-        <h3 className="text-2xl font-bold mb-4 text-center">Committee Structure</h3>
+        <h2 className="text-4xl font-bold mb-4 text-center">Committee Structure</h2>
         <div className="structure">
             <CommitteeRoleSection 
                 title="Convenor"
@@ -63,7 +63,7 @@ const CommitteeStructure = () => (
                 title="Organizational Members"
                 description="Experienced members who guide and assist in organizing events."
                 members={membersData.organizationalMembers}
-                icon={<FaChalkboardTeacher className="icon text-4xl text-blue-600" />}
+                icon={<FaChalkboardTeacher className="icon text-2xl text-blue-600" />}
             />
         </div>
     </section>

@@ -1,36 +1,37 @@
-/* Base Styles */
+/* Committee Section Base */
 .committee-structure {
-    transition: transform 0.3s ease;
-    padding: 50px;
-    max-width: 100%;
+    padding: 50px 20px;
     margin: 0 auto;
-    background: radial-gradient(circle at top left, rgba(240, 240, 240, 0.98), rgba(230, 230, 230, 0.9));
+    max-width: 100%;
+    background: url('../../assets/background1.webp') no-repeat center center/cover;
     border-radius: 16px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
-    background: url('../../assets/background1.webp') no-repeat center center/cover;
 }
-
 /* Favicon Container */
 .favicon-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; /* supports responsiveness */
     gap: 65px;
+    padding: 20px 0;
 }
 
 /* Favicon Styling */
 .favicon {
-    font-size: 51px;
-    width: 75px;
-    height: 75px;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #e35d5b;
     transition: transform 0.4s ease, color 0.3s ease;
     border: 2px solid rgba(227, 93, 91, 0.2);
     border-radius: 50%;
-    padding: 0;
     box-shadow: 0 10px 20px rgba(227, 93, 91, 0.3);
+    font-size: 50px;
 }
 
 .favicon:hover {
@@ -40,11 +41,16 @@
 
 /* Icon Styling */
 .icon {
-    font-size: 48px;
-    transition: transform 0.3s ease, color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* <-- This is the key */
+    font-size: 50px;
+    width: 45px;
+    height: 45px;
     color: #594a4e;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-align: center;
 }
-
 .icon.text-red-500 {
     color: #725e61;
 }
@@ -54,93 +60,79 @@
     transform: scale(1.2);
     color: #9b3838;
 }
-
 /* Flowing Background Animation */
 .committee-structure::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 200%; height: 100%;
     background: linear-gradient(60deg, rgba(200, 105, 150, 0.4), rgba(250, 210, 180, 0.3), rgba(245, 105, 125, 0.4));
     opacity: 0.6;
     z-index: 0;
     animation: flow 10s linear infinite;
 }
-
-/* Keyframes for flowing background */
 @keyframes flow {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
-/* Headings Styling */
-h3 {
+/* Headings */
+h2, h3 {
     text-align: center;
-    margin: 30px;
-    font-size: 2.8rem;
-    color: #1d09f4;
     font-family: 'Georgia', serif;
+    font-weight: bold;
+    color: #1d62d1;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
+    letter-spacing: 1.5px;
+    margin: 30px 0 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+h3 {
+    font-size: 2.9rem;
+}
+
+h2 {
+    font-size: 2.4rem;
 }
 
 h3::after {
     content: "";
     display: block;
-    width: 80px;
+    width: 90px;
     height: 4px;
     background: #9b3838;
-    margin: 15px auto;
+    margin: 15px auto 0;
 }
 
-h2 {
-    font-size: 2.6rem;
-    margin: 20px 0;
-    color: #1d62d1;
-    font-family: 'Garamond', serif;
-    font-weight: 600;
-    text-align: center;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-}
-
-/* Paragraph Styling */
+/* Paragraphs */
 p {
-    font-size: 1.5rem;
-    line-height: 1.8;
-    margin: 15px 0;
-    text-align: justify;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    margin: 12px auto;
+    text-align: center;
     color: #ffffff;
-    text-decoration: blueviolet;
     font-family: 'Georgia', serif;
-    padding: 0 20px;
-    transition: color 0.3s ease;
+    padding: 0 10px;
 }
 
-p:hover {
-    color: #8b3d3c;
-}
-
-/* Structure Container */
+/* Structure Section */
 .structure {
     display: flex;
     flex-direction: column;
-    gap: 60px;
-    padding: 10px;
+    gap: 50px;
+    padding: 20px 0;
 }
 
-/* Role Card Styling */
+/* Role Card */
 .role {
-    border-radius: 16px;
-    padding: 35px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: url('../../assets/background1.webp') no-repeat center center/cover;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .role:hover {
@@ -148,25 +140,26 @@ p:hover {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
-/* Role Member Cards Container */
+/* Members Layout */
 .member-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 25px;
     justify-content: center;
 }
 
-/* Member Card Styling */
+/* Individual Member Card */
 .member-card {
-    text-align: center;
-    max-width: 340px;
+    width: 270px;
     background-color: #fbf6f3;
     border-radius: 12px;
-    padding: 25px;
+    padding: 25px 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+    text-align: center;
+    flex-shrink: 0;
 }
 
 .member-card:hover {
@@ -174,83 +167,68 @@ p:hover {
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
 }
 
-/* Artistic Element for Member Card */
+/* Artistic Gradient Background */
 .member-card::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: radial-gradient(circle at center, rgba(255, 130, 130, 0.5), rgba(255, 200, 100, 0.6), rgba(255, 160, 90, 0.8));
     border-radius: 12px;
     z-index: -1;
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
-/* Member Photo Styling */
+/* Member Image Centered */
 .member-photo {
-    width: 85%;
-    height: auto;
-    border-radius: 100px;
-    margin-bottom: 15px;
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 50%;
     border: 4px solid #b36a6a;
+    display: block;
+    margin: 0 auto 15px auto;
 }
 
-/* Member Name Styling */
+/* Member Name */
 .member-name {
     font-size: 1.8rem;
-    margin: 10px 0;
+    font-weight: bold;
     color: #3e2b2c;
     font-family: 'Georgia', serif;
-    font-weight: bold;
+    margin-bottom: 6px;
+    text-align: center;
 }
 
+/* Member Department */
 .member-department {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #6a4a4b;
-    line-height: 1.1;
-    margin: 0;
+    font-family: 'Georgia', serif;
+    text-align: center;
 }
 
-/* Responsive Styles */
-@media (max-width: 1200px) {
-    .committee-structure { padding: 40px; }
-    h3 { font-size: 2.4rem; }
-    h2 { font-size: 2.3rem; }
-    p { font-size: 1.4rem; }
-}
-
+/* Responsive */
 @media (max-width: 992px) {
-    .committee-structure { padding: 30px; }
-    .favicon { font-size: 40px; width: 55px; height: 55px; }
-    h3 { font-size: 2.2rem; }
-    h2 { font-size: 2.1rem; }
-    p { font-size: 1.3rem; }
-    .member-card { max-width: 280px; }
+    h3 { font-size: 2.4rem; }
+    h2 { font-size: 2rem; }
+    p { font-size: 1.4rem; }
+    .member-card { width: 240px; }
+    .member-photo { width: 150px; height: 150px; }
 }
 
 @media (max-width: 768px) {
-    .structure { gap: 40px; }
-    h3 { font-size: 2rem; }
+    h3 { font-size: 2.1rem; }
     h2 { font-size: 1.9rem; }
-    p { font-size: 1.2rem; }
-    .member-card { max-width: 100%; padding: 20px; }
+    p { font-size: 1.3rem; }
+    .member-card { width: 90%; }
+    .member-photo { width: 130px; height: 130px; }
 }
 
 @media (max-width: 576px) {
     .committee-structure { padding: 15px; }
     h3 { font-size: 1.8rem; }
-    h2 { font-size: 1.7rem; }
-    p { font-size: 1rem; }
-    .member-photo { width: 75%; }
-}
-
-@media (max-width: 375px) {
-    .committee-structure { padding: 10px; }
-    h3 { font-size: 1.6rem; }
     h2 { font-size: 1.6rem; }
-    p { font-size: 0.9rem; padding: 0 10px; }
-    .favicon { font-size: 32px; width: 40px; height: 40px; }
-    .role { padding: 20px; }
+    p { font-size: 1.2rem; padding: 0 10px; }
+    .member-photo { width: 110px; height: 110px; }
 }
