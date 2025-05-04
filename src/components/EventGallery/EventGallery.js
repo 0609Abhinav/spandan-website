@@ -6,9 +6,9 @@ import { FaTimes, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 const videoData = [
   {
     id: 1,
-    title: 'Event Highlights 2023',
+    title: 'Event Highlights 2024',
     description: 'A glimpse into our amazing events!',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Example YouTube embed URL
+    videoUrl: 'https://www.youtube.com/shorts/TSODobJ0V7M', // Example YouTube embed URL
   },
   {
     id: 2,
