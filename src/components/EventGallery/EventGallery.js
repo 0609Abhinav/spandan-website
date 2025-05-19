@@ -8,7 +8,7 @@ const videoData = [
     id: 1,
     title: 'Event Highlights 2024',
     description: 'A glimpse into our amazing events!',
-    videoUrl: 'https://youtube.com/shorts/TSODobJ0V7M?si=1llHWs8PtToRSUqC', // Example YouTube embed URL
+    videoUrl: 'https://www.youtube.com/embed/TSODobJ0V7M', // Example YouTube embed URL
   },
   {
     id: 2,
