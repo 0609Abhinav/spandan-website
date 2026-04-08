@@ -1,33 +1,19 @@
 import React from 'react';
 import { FaInstagram } from 'react-icons/fa';
-import './FloatingSocialIcon.css'; // Import CSS file
+import { motion } from 'framer-motion';
 
-const FloatingSocialIcon = () => {
+export default function FloatingSocialIcon() {
   return (
-    <div className="floating-icon fixed right-4 bottom-10 flex flex-col items-center space-y-3">
-      {/* Join Us Message */}
-      <div className="join-us-container flex flex-col items-center space-y-2">
-        <span className="text-black font-semibold ">Join Us</span>
-        <span className="text-black">Follow Team Spandan on Instagram</span>
+    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1 }}
+      className="fixed right-4 bottom-6 z-40 flex flex-col items-center gap-2">
+      <div className="text-white/40 text-xs font-medium text-center leading-tight">
+        <div>Follow us</div>
+        <div>on Instagram</div>
       </div>
-
-      {/* Arrow and Instagram Icon */}
-      <div className="flex flex-col items-center ">
-        <a
-          href="https://www.instagram.com/finearts056bbdniit/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white hover:text-pink-500 transition duration-300 transform hover:scale-110"
-          aria-label="Instagram - Team Spandan"
-        >
-          <FaInstagram size={40} />
-        </a>
-        <div className="arrow-container mt-2 text-black text-2xl">
-          &#8594; {/* Right Arrow */}
-        </div>
-      </div>
-    </div>
+      <a href="https://www.instagram.com/finearts056bbdniit/" target="_blank" rel="noopener noreferrer"
+        className="p-3 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 text-white shadow-lg hover:scale-110 hover:shadow-pink-500/30 transition-all duration-200">
+        <FaInstagram size={22} />
+      </a>
+    </motion.div>
   );
-};
-
-export default FloatingSocialIcon;
+}
