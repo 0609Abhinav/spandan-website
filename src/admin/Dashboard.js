@@ -9,7 +9,8 @@ import RegistrationsManager from './RegistrationsManager';
 import DashboardHome from './DashboardHome';
 import ContentManager from './ContentManager';
 import VideoManager from './VideoManager';
-import { FiGrid, FiImage, FiUsers, FiCalendar, FiClipboard, FiLogOut, FiEdit3, FiYoutube, FiMenu, FiX } from 'react-icons/fi';
+import CoordinatorManager from './CoordinatorManager';
+import { FiGrid, FiImage, FiUsers, FiCalendar, FiClipboard, FiLogOut, FiEdit3, FiYoutube, FiMenu, FiX, FiStar } from 'react-icons/fi';
 import logo from '../assets/logo.png';
 
 const TABS = [
@@ -20,6 +21,7 @@ const TABS = [
   { id: 'Registrations', label: 'Registrations', icon: FiClipboard },
   { id: 'Content',       label: 'Site Content',  icon: FiEdit3 },
   { id: 'Videos',        label: 'Videos',        icon: FiYoutube },
+  { id: 'Coordinators', label: 'Coordinators',  icon: FiStar },
 ];
 
 const PAGE_TITLES = {
@@ -30,6 +32,7 @@ const PAGE_TITLES = {
   Registrations: { title: 'Registrations', sub: 'View and export registrations' },
   Content:       { title: 'Site Content',  sub: 'Edit section headings' },
   Videos:        { title: 'Videos',        sub: 'Manage YouTube videos' },
+  Coordinators:  { title: 'Coordinators',  sub: 'Manage year-wise student coordinators' },
 };
 
 export default function Dashboard() {
@@ -136,6 +139,7 @@ export default function Dashboard() {
                 {active === 'Registrations' && <RegistrationsManager />}
                 {active === 'Content'       && <ContentManager />}
                 {active === 'Videos'        && <VideoManager />}
+                {active === 'Coordinators'  && <CoordinatorManager />}
               </motion.div>
             </div>
           </main>

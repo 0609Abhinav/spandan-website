@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabase';
 import { uploadImage } from '../lib/cloudinary';
 import { useEvents } from '../lib/EventsContext';
 import { FiEdit2, FiTrash2, FiPlus, FiX, FiUploadCloud, FiImage } from 'react-icons/fi';
+import ConfirmDialog from './ConfirmDialog';
 
 const EMPTY = { title: '', description: '', thumbnail_url: '', year: new Date().getFullYear().toString() };
 
@@ -16,6 +17,7 @@ export default function EventManager() {
   const [file, setFile]       = useState(null);
   const [preview, setPreview] = useState(null);
   const [drag, setDrag]       = useState(false);
+  const [confirm, setConfirm] = useState(null);
   const fileRef               = useRef();
 
   const load = async () => {
@@ -40,7 +42,7 @@ export default function EventManager() {
       else          await supabase.from('events').insert(payload);
       setForm(EMPTY); setFile(null); setPreview(null);
       load(); reloadCtx();
-    } catch (err) { alert(err.message); }
+    } catch (err) { console.error(err); }
     setLoading(false);
   };
 
@@ -52,9 +54,10 @@ export default function EventManager() {
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm('Delete this event?')) return;
-    await supabase.from('events').delete().eq('id', id);
-    load(); reloadCtx();
+    setConfirm({ message: 'Delete this event? This cannot be undone.', onConfirm: async () => {
+      await supabase.from('events').delete().eq('id', id);
+      load(); reloadCtx();
+    }});
   };
 
   const cancel = () => { setEditId(null); setForm(EMPTY); setFile(null); setPreview(null); };
@@ -62,6 +65,7 @@ export default function EventManager() {
 
   return (
     <div className="space-y-6">
+      <ConfirmDialog confirm={confirm} onClose={() => setConfirm(null)} />
       {/* Form card */}
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-2xl p-6">
         <h3 className="text-white font-semibold text-sm mb-5">{editId ? '✏️ Edit Event' : '➕ Add New Event'}</h3>

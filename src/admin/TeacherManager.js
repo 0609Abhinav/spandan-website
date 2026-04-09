@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../lib/supabase';
 import { uploadImage } from '../lib/cloudinary';
 import { FiEdit2, FiTrash2, FiPlus, FiX, FiUser, FiUploadCloud } from 'react-icons/fi';
+import ConfirmDialog from './ConfirmDialog';
 
 const EMPTY = { name: '', role: '', bio: '', image_url: '' };
 
@@ -14,6 +15,7 @@ export default function TeacherManager() {
   const [drag, setDrag]       = useState(false);
   const [loading, setLoading] = useState(false);
   const [editId, setEditId]   = useState(null);
+  const [confirm, setConfirm] = useState(null);
   const fileRef               = useRef();
 
   const load = async () => {
@@ -32,7 +34,7 @@ export default function TeacherManager() {
       if (editId) { await supabase.from('teachers').update({ ...form, image_url }).eq('id', editId); setEditId(null); }
       else          await supabase.from('teachers').insert({ ...form, image_url });
       setForm(EMPTY); setFile(null); setPreview(null); load();
-    } catch (err) { alert(err.message); }
+    } catch (err) { console.error(err); }
     setLoading(false);
   };
 
@@ -41,12 +43,17 @@ export default function TeacherManager() {
     setForm({ name: item.name, role: item.role, bio: item.bio||'', image_url: item.image_url||'' });
     setPreview(item.image_url || null); setFile(null);
   };
-  const handleDelete = async (id) => { if (!window.confirm('Delete?')) return; await supabase.from('teachers').delete().eq('id', id); load(); };
+  const handleDelete = async (id) => {
+    setConfirm({ message: 'Delete this teacher? This cannot be undone.', onConfirm: async () => {
+      await supabase.from('teachers').delete().eq('id', id); load();
+    }});
+  };
   const cancel = () => { setEditId(null); setForm(EMPTY); setFile(null); setPreview(null); };
   const set    = (k, v) => setForm(f => ({...f, [k]: v}));
 
   return (
     <div className="space-y-6">
+      <ConfirmDialog confirm={confirm} onClose={() => setConfirm(null)} />
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-2xl p-6">
         <h3 className="text-white font-semibold text-sm mb-5">{editId ? '✏️ Edit Teacher' : '➕ Add Teacher'}</h3>
         <form onSubmit={handleSubmit} className="space-y-4">

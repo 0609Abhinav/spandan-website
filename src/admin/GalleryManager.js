@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabase';
 import { uploadImage } from '../lib/cloudinary';
 import { useEvents } from '../lib/EventsContext';
 import { FiEdit2, FiTrash2, FiPlus, FiX, FiUploadCloud, FiImage } from 'react-icons/fi';
+import ConfirmDialog from './ConfirmDialog';
 
 const EMPTY = { title: '', description: '', event_category: '', year: new Date().getFullYear().toString() };
 
@@ -21,6 +22,7 @@ export default function GalleryManager() {
   const [editPreview, setEditPreview] = useState(null);
   const [filterCat, setFilterCat] = useState('');
   const [filterYear, setFilterYear] = useState('');
+  const [confirm, setConfirm] = useState(null);
   const fileRef               = useRef();
 
   const load = async () => {
@@ -57,7 +59,7 @@ export default function GalleryManager() {
   // Bulk upload submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!editId && files.length === 0) { alert('Please select at least one image.'); return; }
+    if (!editId && files.length === 0) { setConfirm({ message: 'Please select at least one image.', onConfirm: () => {} }); return; }
     setLoading(true);
 
     try {
@@ -81,7 +83,7 @@ export default function GalleryManager() {
         setFiles([]); setPreviews([]);
       }
       setForm(EMPTY); load();
-    } catch (err) { alert(err.message); }
+    } catch (err) { console.error(err); }
     setLoading(false);
     setProgress({ done: 0, total: 0 });
   };
@@ -94,8 +96,9 @@ export default function GalleryManager() {
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm('Delete this image?')) return;
-    await supabase.from('gallery').delete().eq('id', id); load();
+    setConfirm({ message: 'Delete this image? This cannot be undone.', onConfirm: async () => {
+      await supabase.from('gallery').delete().eq('id', id); load();
+    }});
   };
 
   const cancel = () => {
@@ -117,6 +120,7 @@ export default function GalleryManager() {
 
   return (
     <div className="space-y-6">
+      <ConfirmDialog confirm={confirm} onClose={() => setConfirm(null)} />
       {/* ── FORM ── */}
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-2xl p-6">
         <h3 className="text-white font-semibold text-sm mb-5">

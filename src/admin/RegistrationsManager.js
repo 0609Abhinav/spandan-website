@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { supabase } from '../lib/supabase';
 import * as XLSX from 'xlsx';
 import { FiSearch, FiTrash2, FiDownload, FiChevronLeft, FiChevronRight, FiChevronUp, FiChevronDown } from 'react-icons/fi';
+import ConfirmDialog from './ConfirmDialog';
 
 const PAGE  = 10;
 const COLS  = ['name','email','phone','roll_no','branch','course','year','art_form','created_at'];
@@ -16,6 +17,7 @@ export default function RegistrationsManager() {
   const [sortCol, setSortCol]   = useState('created_at');
   const [sortAsc, setSortAsc]   = useState(false);
   const [loading, setLoading]   = useState(false);
+  const [confirm, setConfirm]   = useState(null);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -31,7 +33,11 @@ export default function RegistrationsManager() {
   useEffect(() => { load(); }, [load]);
 
   const sort = (col) => { if (sortCol === col) setSortAsc(a => !a); else { setSortCol(col); setSortAsc(true); } setPage(0); };
-  const del  = async (id) => { if (!window.confirm('Delete?')) return; await supabase.from('registrations').delete().eq('id', id); load(); };
+  const del  = async (id) => {
+    setConfirm({ message: 'Delete this registration? This cannot be undone.', onConfirm: async () => {
+      await supabase.from('registrations').delete().eq('id', id); load();
+    }});
+  };
 
   const getFiltered = async () => {
     let q = supabase.from('registrations').select('*');
@@ -62,6 +68,7 @@ export default function RegistrationsManager() {
 
   return (
     <div className="space-y-4">
+      <ConfirmDialog confirm={confirm} onClose={() => setConfirm(null)} />
       {/* Toolbar */}
       <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 items-stretch sm:items-center">
         <div className="relative flex-1 min-w-[200px]">

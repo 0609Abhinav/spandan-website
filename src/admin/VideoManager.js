@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../lib/supabase';
 import { uploadImage } from '../lib/cloudinary';
 import { FiPlus, FiEdit2, FiTrash2, FiX, FiUploadCloud, FiYoutube, FiPlay } from 'react-icons/fi';
+import ConfirmDialog from './ConfirmDialog';
 
 const EMPTY = { title: '', description: '', youtube_url: '', thumbnail_url: '' };
 
@@ -20,13 +21,6 @@ function getThumb(video) {
   return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null;
 }
 
-// Convert any YouTube URL to embed URL
-function toEmbed(url) {
-  if (!url) return '';
-  if (url.includes('/embed/')) return url;
-  const id = getYouTubeId(url);
-  return id ? `https://www.youtube.com/embed/${id}` : url;
-}
 
 export default function VideoManager() {
   const [items, setItems]       = useState([]);
@@ -37,6 +31,7 @@ export default function VideoManager() {
   const [preview, setPreview]   = useState(null);
   const [drag, setDrag]         = useState(false);
   const [ytPreview, setYtPreview] = useState(null);
+  const [confirm, setConfirm]   = useState(null);
   const fileRef                 = useRef();
 
   const load = async () => {
@@ -64,7 +59,7 @@ export default function VideoManager() {
       else          await supabase.from('videos').insert(payload);
       setForm(EMPTY); setFile(null); setPreview(null); setYtPreview(null);
       load();
-    } catch (err) { alert(err.message); }
+    } catch (err) { console.error(err); }
     setLoading(false);
   };
 
@@ -77,17 +72,17 @@ export default function VideoManager() {
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm('Delete this video?')) return;
-    await supabase.from('videos').delete().eq('id', id); load();
+    setConfirm({ message: 'Delete this video? This cannot be undone.', onConfirm: async () => {
+      await supabase.from('videos').delete().eq('id', id); load();
+    }});
   };
 
   const cancel = () => { setEditId(null); setForm(EMPTY); setFile(null); setPreview(null); setYtPreview(null); };
   const set    = (k, v) => setForm(f => ({...f, [k]: v}));
 
-  const displayThumb = preview || ytPreview;
-
   return (
     <div className="space-y-6">
+      <ConfirmDialog confirm={confirm} onClose={() => setConfirm(null)} />
       {/* Form */}
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-2xl p-6">
         <h3 className="text-white font-semibold text-sm mb-5">{editId ? '✏️ Edit Video' : '➕ Add Video'}</h3>
