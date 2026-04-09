@@ -63,7 +63,7 @@ export default function RegistrationsManager() {
   return (
     <div className="space-y-4">
       {/* Toolbar */}
-      <div className="flex flex-wrap gap-3 items-center">
+      <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 items-stretch sm:items-center">
         <div className="relative flex-1 min-w-[200px]">
           <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30" size={14} />
           <input className="input-field pl-9" placeholder="Search name, email, roll no…" value={search}
@@ -120,9 +120,9 @@ export default function RegistrationsManager() {
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
         <span className="text-white/30 text-xs">Page {page+1} of {totalPages||1}</span>
-        <div className="flex gap-1">
+        <div className="flex gap-1 flex-wrap justify-center">
           <button disabled={page===0} onClick={() => setPage(0)} className="btn-secondary px-3 py-1.5 text-xs disabled:opacity-30">«</button>
           <button disabled={page===0} onClick={() => setPage(p=>p-1)} className="btn-secondary px-3 py-1.5 text-xs disabled:opacity-30"><FiChevronLeft size={13}/></button>
           {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {

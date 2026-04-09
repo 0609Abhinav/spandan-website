@@ -7,26 +7,27 @@
 @layer base {
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: "Inter", sans-serif; background: #0f0a1e; color: #e2e8f0; -webkit-font-smoothing: antialiased; }
+  body { font-family: "Inter", sans-serif; background: #0a0614; color: #e2e8f0; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   h1, h2, h3, h4 { color: inherit; text-align: unset; font-weight: 700; }
   p { color: inherit; }
+  img { max-width: 100%; }
 }
 
 @layer components {
   .glass { @apply backdrop-blur-xl bg-white/5 border border-purple-500/20 rounded-2xl; }
   .glass-strong { @apply backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl; }
-  .input-field { @apply w-full bg-white/5 border border-purple-500/30 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-purple-400 focus:bg-white/10 transition-all duration-200 text-sm; }
-  .input-field-icon { @apply input-field pl-10; }
-  .btn-primary { @apply px-5 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-sm shadow-lg; }
-  .btn-secondary { @apply px-5 py-2.5 bg-white/10 border border-white/20 text-white font-medium rounded-xl hover:bg-white/20 transition-all duration-200 text-sm; }
+  .input-field { @apply w-full bg-white/5 border border-purple-500/30 rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 text-white placeholder-white/30 focus:outline-none focus:border-purple-400 focus:bg-white/10 transition-all duration-200 text-sm; }
+  .input-field-icon { @apply input-field pl-9 sm:pl-10; }
+  .btn-primary { @apply px-4 py-2 sm:px-5 sm:py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-sm shadow-lg; }
+  .btn-secondary { @apply px-4 py-2 sm:px-5 sm:py-2.5 bg-white/10 border border-white/20 text-white font-medium rounded-xl hover:bg-white/20 transition-all duration-200 text-sm; }
   .btn-danger  { @apply px-3 py-1.5 bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg hover:bg-red-500/30 transition-all text-xs font-medium; }
   .btn-warning { @apply px-3 py-1.5 bg-amber-500/20 border border-amber-500/30 text-amber-400 rounded-lg hover:bg-amber-500/30 transition-all text-xs font-medium; }
   .btn-success { @apply px-3 py-1.5 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 rounded-lg hover:bg-emerald-500/30 transition-all text-xs font-medium; }
-  .section-title { @apply text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400 mb-3; }
-  .section-sub { @apply text-center text-white/50 text-sm mb-12; }
+  .section-title { @apply text-3xl sm:text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400 mb-3; }
+  .section-sub { @apply text-center text-white/50 text-sm mb-8 sm:mb-12 px-4; }
   .badge-purple { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/20 text-purple-300 border border-purple-500/30; }
   .badge-pink   { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-pink-500/20 text-pink-300 border border-pink-500/30; }
-  .tbl-th { @apply px-4 py-3 text-left text-xs font-semibold text-white/50 uppercase tracking-wider cursor-pointer hover:text-white/80 transition-colors whitespace-nowrap; }
-  .tbl-td { @apply px-4 py-3 text-sm text-white/80 whitespace-nowrap; }
+  .tbl-th { @apply px-3 py-3 sm:px-4 text-left text-xs font-semibold text-white/50 uppercase tracking-wider cursor-pointer hover:text-white/80 transition-colors whitespace-nowrap; }
+  .tbl-td { @apply px-3 py-3 sm:px-4 text-sm text-white/80 whitespace-nowrap; }
   .tbl-row { @apply border-b border-white/5 hover:bg-white/5 transition-colors; }
 }

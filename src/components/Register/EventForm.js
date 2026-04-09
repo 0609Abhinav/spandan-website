@@ -60,15 +60,15 @@ export default function EventForm() {
   const set = (name, val) => { setForm(f => ({...f, [name]: val})); setErrors(e => ({...e, [name]: ''})); };
 
   return (
-    <section id="event-form" className="relative py-24 px-4 bg-[#0f0a1e] overflow-hidden">
+    <section id="event-form" className="relative py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
       <div className="absolute top-10 left-10 w-80 h-80 bg-purple-600/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Success toast */}
       <AnimatePresence>
         {toast && (
-          <motion.div initial={{ opacity: 0, y: -20, x: '-50%' }} animate={{ opacity: 1, y: 0, x: '-50%' }} exit={{ opacity: 0, y: -20, x: '-50%' }}
-            className="fixed top-20 left-1/2 z-50 flex items-center gap-3 bg-emerald-500/20 border border-emerald-500/40 backdrop-blur-xl text-emerald-300 px-6 py-3 rounded-2xl shadow-lg">
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
+            className="fixed top-20 left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 z-50 flex items-center gap-3 bg-emerald-500/20 border border-emerald-500/40 backdrop-blur-xl text-emerald-300 px-4 sm:px-6 py-3 rounded-2xl shadow-lg text-sm">
             <FiCheckCircle size={18} />
             <span className="font-medium text-sm">Registration successful! We'll be in touch soon.</span>
           </motion.div>
@@ -87,9 +87,9 @@ export default function EventForm() {
           </div>
         </div>
 
-        <div className="glass-strong p-8 rounded-2xl">
+        <div className="glass-strong p-4 sm:p-6 md:p-8 rounded-2xl">
           <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               {FIELDS.map((field, i) => {
                 const Icon = field.icon;
                 return (
