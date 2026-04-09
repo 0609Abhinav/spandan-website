@@ -1,102 +1,107 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { supabase } from '../lib/supabase';
+import { EventsProvider } from '../lib/EventsContext';
 import GalleryManager from './GalleryManager';
 import TeacherManager from './TeacherManager';
 import EventManager from './EventManager';
 import RegistrationsManager from './RegistrationsManager';
-import { FiGrid, FiImage, FiUsers, FiCalendar, FiClipboard, FiLogOut } from 'react-icons/fi';
-import { FaPalette } from 'react-icons/fa';
+import DashboardHome from './DashboardHome';
+import ContentManager from './ContentManager';
+import VideoManager from './VideoManager';
+import { FiGrid, FiImage, FiUsers, FiCalendar, FiClipboard, FiLogOut, FiEdit3, FiYoutube } from 'react-icons/fi';
+import logo from '../assets/logo.png';
 
 const TABS = [
-  { id: 'dashboard',     label: 'Dashboard',     icon: FiGrid },
-  { id: 'Gallery',       label: 'Gallery',        icon: FiImage },
-  { id: 'Teachers',      label: 'Teachers',       icon: FiUsers },
-  { id: 'Events',        label: 'Events',         icon: FiCalendar },
-  { id: 'Registrations', label: 'Registrations',  icon: FiClipboard },
+  { id: 'dashboard',     label: 'Dashboard',    icon: FiGrid },
+  { id: 'Gallery',       label: 'Gallery',       icon: FiImage },
+  { id: 'Teachers',      label: 'Teachers',      icon: FiUsers },
+  { id: 'Events',        label: 'Events',        icon: FiCalendar },
+  { id: 'Registrations', label: 'Registrations', icon: FiClipboard },
+  { id: 'Content',       label: 'Site Content',  icon: FiEdit3 },
+  { id: 'Videos',        label: 'Videos',         icon: FiYoutube },
 ];
 
-const STAT_CARDS = [
-  { key: 'gallery',       label: 'Gallery Images', icon: FiImage,     color: 'from-purple-600 to-purple-800' },
-  { key: 'teachers',      label: 'Teachers',        icon: FiUsers,     color: 'from-pink-600 to-pink-800' },
-  { key: 'events',        label: 'Events',          icon: FiCalendar,  color: 'from-indigo-600 to-indigo-800' },
-  { key: 'registrations', label: 'Registrations',   icon: FiClipboard, color: 'from-emerald-600 to-emerald-800' },
-];
+const PAGE_TITLES = {
+  dashboard:     { title: 'Dashboard',     sub: 'Overview of your content' },
+  Gallery:       { title: 'Gallery',       sub: 'Manage event images' },
+  Teachers:      { title: 'Teachers',      sub: 'Manage committee members' },
+  Events:        { title: 'Events',        sub: 'Manage fine arts events' },
+  Registrations: { title: 'Registrations', sub: 'View and export student registrations' },
+  Content:       { title: 'Site Content',  sub: 'Edit section headings shown on the public website' },
+  Videos:        { title: 'Videos',         sub: 'Manage YouTube event videos with thumbnails' },
+};
 
 export default function Dashboard() {
   const [active, setActive] = useState('dashboard');
-  const [stats, setStats]   = useState({ gallery: 0, teachers: 0, events: 0, registrations: 0 });
-
-  useEffect(() => {
-    Promise.all([
-      supabase.from('gallery').select('*', { count: 'exact', head: true }),
-      supabase.from('teachers').select('*', { count: 'exact', head: true }),
-      supabase.from('events').select('*', { count: 'exact', head: true }),
-      supabase.from('registrations').select('*', { count: 'exact', head: true }),
-    ]).then(([g, t, e, r]) => setStats({ gallery: g.count||0, teachers: t.count||0, events: e.count||0, registrations: r.count||0 }));
-  }, [active]);
-
   const handleLogout = async () => { await supabase.auth.signOut(); window.location.reload(); };
+  const page = PAGE_TITLES[active];
 
   return (
-    <div className="flex min-h-screen bg-[#0f0a1e] font-sans">
-      {/* Sidebar */}
-      <aside className="w-56 bg-[#1a1030] border-r border-white/5 flex flex-col sticky top-0 h-screen">
-        <div className="p-5 border-b border-white/5 flex items-center gap-3">
-          <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
-            <FaPalette size={14} className="text-white" />
-          </div>
-          <div>
-            <div className="text-white font-bold text-sm">Spandan</div>
-            <div className="text-white/30 text-xs">Admin Panel</div>
-          </div>
-        </div>
-        <nav className="flex-1 p-3 space-y-1">
-          {TABS.map(tab => {
-            const Icon = tab.icon;
-            return (
-              <button key={tab.id} onClick={() => setActive(tab.id)}
-                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200
-                  ${active === tab.id ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'text-white/50 hover:text-white hover:bg-white/5'}`}>
-                <Icon size={15} />{tab.label}
-              </button>
-            );
-          })}
-        </nav>
-        <div className="p-3 border-t border-white/5">
-          <button onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-red-400/70 hover:text-red-400 hover:bg-red-500/10 transition-all duration-200">
-            <FiLogOut size={15} />Logout
-          </button>
-        </div>
-      </aside>
-
-      {/* Main */}
-      <main className="flex-1 p-8 overflow-y-auto">
-        {active === 'dashboard' && (
-          <div>
-            <h1 className="text-2xl font-bold text-white mb-1">Dashboard</h1>
-            <p className="text-white/40 text-sm mb-8">Overview of your content</p>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {STAT_CARDS.map(card => {
-                const Icon = card.icon;
-                return (
-                  <div key={card.key} className="glass rounded-2xl p-5">
-                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${card.color} flex items-center justify-center mb-4`}>
-                      <Icon size={18} className="text-white" />
-                    </div>
-                    <div className="text-3xl font-bold text-white">{stats[card.key]}</div>
-                    <div className="text-white/40 text-xs mt-1">{card.label}</div>
-                  </div>
-                );
-              })}
+    <EventsProvider>
+      <div className="flex min-h-screen bg-[#0f0a1e]">
+        {/* Sidebar */}
+        <aside className="w-60 bg-[#130d24] border-r border-white/5 flex flex-col sticky top-0 h-screen z-10">
+          {/* Logo */}
+          <div className="p-5 border-b border-white/5 flex items-center gap-3">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl blur-sm opacity-60" />
+              <img src={logo} alt="Spandan" className="relative h-9 w-9 rounded-xl object-contain" draggable={false} />
+            </div>
+            <div>
+              <div className="text-white font-bold text-sm leading-tight">Spandan</div>
+              <div className="text-purple-400/60 text-xs">Fine Arts CMS</div>
             </div>
           </div>
-        )}
-        {active === 'Gallery'       && <><h1 className="text-2xl font-bold text-white mb-6">Gallery</h1><GalleryManager /></>}
-        {active === 'Teachers'      && <><h1 className="text-2xl font-bold text-white mb-6">Teachers</h1><TeacherManager /></>}
-        {active === 'Events'        && <><h1 className="text-2xl font-bold text-white mb-6">Events</h1><EventManager /></>}
-        {active === 'Registrations' && <><h1 className="text-2xl font-bold text-white mb-6">Registrations</h1><RegistrationsManager /></>}
-      </main>
-    </div>
+
+          {/* Nav */}
+          <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">
+            {TABS.map(tab => {
+              const Icon = tab.icon;
+              const isActive = active === tab.id;
+              return (
+                <motion.button key={tab.id} onClick={() => setActive(tab.id)} whileHover={{ x: 2 }}
+                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150
+                    ${isActive ? 'bg-gradient-to-r from-purple-600/30 to-pink-600/20 text-white border border-purple-500/30' : 'text-white/40 hover:text-white/80 hover:bg-white/5'}`}>
+                  <Icon size={15} className={isActive ? 'text-purple-400' : ''} />
+                  {tab.label}
+                  {isActive && <div className="ml-auto w-1.5 h-1.5 rounded-full bg-purple-400" />}
+                </motion.button>
+              );
+            })}
+          </nav>
+
+          <div className="p-3 border-t border-white/5">
+            <button onClick={handleLogout}
+              className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-red-400/50 hover:text-red-400 hover:bg-red-500/10 transition-all duration-150">
+              <FiLogOut size={15} />Logout
+            </button>
+          </div>
+        </aside>
+
+        {/* Main */}
+        <div className="flex-1 flex flex-col min-w-0">
+          {/* Header */}
+          <header className="sticky top-0 z-10 bg-[#0f0a1e]/80 backdrop-blur-xl border-b border-white/5 px-8 py-4 flex items-center justify-between">
+            <div>
+              <h1 className="text-lg font-bold text-white">{page.title}</h1>
+              <p className="text-white/30 text-xs">{page.sub}</p>
+            </div>
+          </header>
+
+          <main className="flex-1 p-8 overflow-y-auto">
+            <motion.div key={active} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
+              {active === 'dashboard'     && <DashboardHome />}
+              {active === 'Gallery'       && <GalleryManager />}
+              {active === 'Teachers'      && <TeacherManager />}
+              {active === 'Events'        && <EventManager />}
+              {active === 'Registrations' && <RegistrationsManager />}
+              {active === 'Content'       && <ContentManager />}
+              {active === 'Videos'        && <VideoManager />}
+            </motion.div>
+          </main>
+        </div>
+      </div>
+    </EventsProvider>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { EventsProvider } from './lib/EventsContext';
 import Navbar from './Navbar/navbar';
 import AboutUs from './components/AboutUs/aboutus';
 import EventForm from './components/Register/EventForm';
@@ -14,8 +15,9 @@ const isAdmin = window.location.pathname.startsWith('/admin');
 export default function App() {
   if (isAdmin) return <AdminApp />;
   return (
-    <div>
-      <Navbar />
+    <EventsProvider>
+      <div>
+        <Navbar />
       <section id="about-us"><AboutUs /></section>
       <section id="roles-and-responsibilities"><RolesAndResponsibilities /></section>
       <section id="committee-structure"><CommitteeStructure /></section>
@@ -24,5 +26,6 @@ export default function App() {
       <Footer />
       <FloatingSocialIcon />
     </div>
+    </EventsProvider>
   );
 }

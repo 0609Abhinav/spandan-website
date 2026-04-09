@@ -1,12 +1,11 @@
 import React from 'react';
-import { FaLinkedin, FaWhatsapp, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
 import abhiImage from '../../assets/abhi.jpg';
 
 const SOCIALS = [
-  { href: 'https://wa.me/9621854341',                              icon: FaWhatsapp,  color: 'hover:text-green-400',  label: 'WhatsApp' },
-  { href: 'https://www.linkedin.com/in/abhinav-tripathi-770224253/', icon: FaLinkedin,  color: 'hover:text-blue-400',   label: 'LinkedIn' },
-  { href: 'https://www.instagram.com/_abhinavtripathi/',            icon: FaInstagram, color: 'hover:text-pink-400',   label: 'Instagram' },
-  { href: 'https://www.facebook.com/abhinav2017',                  icon: FaFacebook,  color: 'hover:text-blue-500',   label: 'Facebook' },
+  { href: 'https://www.linkedin.com/in/abhinav-tripathi-770224253/', icon: FaLinkedin,  color: 'hover:text-blue-400',  label: 'LinkedIn' },
+  { href: 'https://www.instagram.com/_abhinavtripathi/',            icon: FaInstagram, color: 'hover:text-pink-400',  label: 'Instagram' },
+  { href: 'https://www.facebook.com/abhinav2017',                  icon: FaFacebook,  color: 'hover:text-blue-500',  label: 'Facebook' },
 ];
 
 export default function Footer() {
@@ -18,8 +17,7 @@ export default function Footer() {
           <div className="flex-1 text-center sm:text-left">
             <p className="text-white/40 text-xs uppercase tracking-widest mb-1">Developer</p>
             <h3 className="text-white font-bold text-lg">Abhinav Tripathi</h3>
-            <p className="text-white/50 text-sm mt-0.5">4th Year · Information Technology · BBDNIIT</p>
-            <p className="text-white/40 text-xs mt-1">+91 9621854341</p>
+            <p className="text-white/50 text-sm mt-0.5"> Information Technology · BBDNIIT</p>
           </div>
           <div className="flex gap-3">
             {SOCIALS.map(s => (
