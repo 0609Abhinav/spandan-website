@@ -1,70 +1,250 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="public/logo.png" alt="Spandan Logo" width="100" />
 
-## Available Scripts
+# ✨ SPANDAN — Fine Arts Community
 
-In the project directory, you can run:
+**A full-stack web platform for the Spandan Fine Arts Community**  
+Celebrating creativity through Rangoli, Painting, Mehendi, Sketching, Clay Art, Face Painting & more.
 
-### `npm start`
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3-38BDF8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
+[![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?style=flat-square&logo=supabase)](https://supabase.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-EF0082?style=flat-square&logo=framer)](https://www.framer.com/motion/)
+[![Cloudinary](https://img.shields.io/badge/Cloudinary-Media-3448C5?style=flat-square&logo=cloudinary)](https://cloudinary.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🎨 Overview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Spandan** is the official Fine Arts Community platform of BBDNIIT. This website serves as the digital home for the community — showcasing events, gallery, committee members, student coordinators, and allowing students to register for art events.
 
-### `npm run build`
+The platform includes a fully-featured **Admin CMS** for managing all content without touching code.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🖼️ Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Public Site
+- **Hero / About** — Animated landing section with community introduction and art category tags
+- **Roles & Responsibilities** — Showcases what the community offers
+- **Committee Structure** — Convenor, Organizational Members, and year-wise Student Coordinators
+- **Event Gallery** — Filterable photo gallery organized by event and year
+- **Event Registration** — Students can register for fine arts events
+- **Videos Section** — Curated YouTube videos with auto-thumbnails
+- **Floating Art Elements** — Animated background with fine arts icons (brush, palette, easel, quill, rangoli, etc.)
+- **Cursor Glow** — Custom cursor glow effect
+- **Floating Social Icon** — Quick Instagram access
 
-### `npm run eject`
+### Admin CMS (`/admin`)
+- **Dashboard** — Overview stats
+- **Gallery Manager** — Bulk image upload with drag & drop, event filtering, year filtering
+- **Event Manager** — Add/edit/delete events with thumbnail upload
+- **Teacher Manager** — Manage committee members (Convenor + Organizational Members)
+- **Coordinator Manager** — Year-wise student coordinators with photo, college & branch
+- **Video Manager** — YouTube video management with auto-thumbnail preview
+- **Registrations Manager** — View, search, filter, sort and export registrations to Excel/CSV
+- **Site Content Manager** — Edit section headings and descriptions live
+- **Confirm Dialog** — Portal-based delete confirmation (no scroll issues)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠️ Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Layer | Technology |
+|---|---|
+| Frontend | React 18, Tailwind CSS 3 |
+| Animations | Framer Motion 11 |
+| Backend / DB | Supabase (PostgreSQL + Auth) |
+| Media Storage | Cloudinary |
+| Icons | React Icons (Feather, Font Awesome) |
+| Export | SheetJS (xlsx) |
+| Charts | Recharts |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🗄️ Database Schema (Supabase)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sql
+-- Events
+create table events (
+  id uuid default gen_random_uuid() primary key,
+  title text not null,
+  description text,
+  thumbnail_url text,
+  year text,
+  created_at timestamptz default now()
+);
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-- Gallery
+create table gallery (
+  id uuid default gen_random_uuid() primary key,
+  title text,
+  description text,
+  event_category text,
+  year text,
+  image_url text,
+  created_at timestamptz default now()
+);
 
-### Code Splitting
+-- Teachers (Committee)
+create table teachers (
+  id uuid default gen_random_uuid() primary key,
+  name text not null,
+  role text not null,
+  bio text,
+  image_url text,
+  created_at timestamptz default now()
+);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+-- Coordinators
+create table coordinators (
+  id uuid default gen_random_uuid() primary key,
+  name text not null,
+  year text not null,
+  college text,
+  branch text,
+  image_url text,
+  created_at timestamptz default now()
+);
 
-### Analyzing the Bundle Size
+-- Videos
+create table videos (
+  id uuid default gen_random_uuid() primary key,
+  title text not null,
+  description text,
+  youtube_url text not null,
+  thumbnail_url text,
+  created_at timestamptz default now()
+);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+-- Registrations
+create table registrations (
+  id uuid default gen_random_uuid() primary key,
+  name text,
+  email text,
+  phone text,
+  roll_no text,
+  branch text,
+  course text,
+  year text,
+  art_form text,
+  created_at timestamptz default now()
+);
 
-### Making a Progressive Web App
+-- Site Content
+create table site_content (
+  id uuid default gen_random_uuid() primary key,
+  key text unique not null,
+  title text,
+  subtitle text
+);
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🚀 Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Prerequisites
+- Node.js 18+
+- A [Supabase](https://supabase.com/) project
+- A [Cloudinary](https://cloudinary.com/) account
 
-### Deployment
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+# Clone the repository
+git clone https://github.com/0609Abhinav/spandan-website.git
+cd spandan-website
 
-### `npm run build` fails to minify
+# Install dependencies
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Environment Variables
+
+Create a `.env` file in the root (see `.env.example`):
+
+```env
+REACT_APP_SUPABASE_URL=your_supabase_project_url
+REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
+REACT_APP_CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+REACT_APP_CLOUDINARY_UPLOAD_PRESET=your_upload_preset
+```
+
+### Run Locally
+
+```bash
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+---
+
+## 📁 Project Structure
+
+```
+spandan-website/
+├── public/
+│   └── index.html
+├── src/
+│   ├── admin/                    # Admin CMS components
+│   │   ├── AdminApp.js
+│   │   ├── Dashboard.js
+│   │   ├── GalleryManager.js
+│   │   ├── EventManager.js
+│   │   ├── TeacherManager.js
+│   │   ├── CoordinatorManager.js
+│   │   ├── VideoManager.js
+│   │   ├── RegistrationsManager.js
+│   │   ├── ContentManager.js
+│   │   └── ConfirmDialog.js
+│   ├── components/               # Public site components
+│   │   ├── AboutUs/
+│   │   ├── CommitteeStructure/
+│   │   ├── EventGallery/
+│   │   ├── Register/
+│   │   ├── roles/
+│   │   ├── Footer/
+│   │   ├── FloatingSocialIcon/
+│   │   ├── ArtFloatingElements.js
+│   │   └── CursorGlow.js
+│   ├── lib/                      # Supabase, Cloudinary, Context
+│   ├── assets/                   # Images and static assets
+│   ├── App.js
+│   └── index.js
+└── package.json
+```
+
+---
+
+## 🔐 Admin Access
+
+Navigate to `/admin` to access the CMS. Authentication is handled via Supabase Auth.
+
+---
+
+## 📸 Art Forms Supported
+
+`Rangoli` · `Painting` · `Mehendi` · `Sketching` · `Clay Art` · `Tattoo Making` · `Face Painting` · `Collage Making` · `Design Through Paper` · `Best Out of Waste`
+
+---
+
+## 👨‍💻 Author
+
+**Abhinav** — [github.com/0609Abhinav](https://github.com/0609Abhinav)
+
+---
+
+<div align="center">
+  <sub>Made with ❤️ for the Spandan Fine Arts Community · BBDNIIT</sub>
+</div>
