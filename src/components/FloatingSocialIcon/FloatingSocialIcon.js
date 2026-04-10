@@ -11,7 +11,7 @@ export default function FloatingSocialIcon() {
         <div className="text-white/30 text-[10px] font-medium text-center leading-tight">
           <div>Follow</div><div>us</div>
         </div>
-        <motion.a href="https://www.instagram.com/finearts056bbdniit/" target="_blank" rel="noopener noreferrer"
+        <motion.a href="https://www.instagram.com/_bbd.spandan_/" target="_blank" rel="noopener noreferrer"
           whileHover={{ scale: 1.15 }}
           className="relative p-3 rounded-2xl text-white shadow-lg transition-all duration-200"
           style={{ background: 'linear-gradient(135deg, #a855f7, #ec4899)' }}>

@@ -10,6 +10,7 @@ import Footer from './components/Footer/footer';
 import EventGallery from './components/EventGallery/EventGallery';
 import FloatingSocialIcon from './components/FloatingSocialIcon/FloatingSocialIcon';
 import CursorGlow from './components/CursorGlow';
+import ArtFloatingElements from './components/ArtFloatingElements';
 import AdminApp from './admin/AdminApp';
 
 const isAdmin = window.location.pathname.startsWith('/admin');
@@ -37,6 +38,8 @@ export default function App() {
           <ParallaxBlob className="absolute bottom-[10%] left-[20%] w-[400px] h-[400px] rounded-full blur-3xl opacity-10 hidden md:block"
             style={{ background: 'radial-gradient(circle, #4f46e5, transparent 70%)' }} />
         </div>
+
+        <ArtFloatingElements />
 
         <div className="relative z-10 w-full">
           <Navbar />
