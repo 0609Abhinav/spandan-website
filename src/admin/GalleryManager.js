@@ -296,27 +296,34 @@ export default function GalleryManager() {
             <FiImage size={32} className="mx-auto mb-3 opacity-30" />
             No images yet — upload some above
           </div>
-        : <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            <AnimatePresence>
-              {filtered.map((item, i) => (
-                <motion.div key={item.id} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }} transition={{ delay: i * 0.02 }}
-                  className="glass rounded-xl overflow-hidden group hover:border-purple-500/40 transition-all duration-200 hover:shadow-lg hover:shadow-purple-900/20">
-                  <div className="relative aspect-square">
-                    <img src={item.image_url} alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                      <button onClick={() => handleEdit(item)} className="btn-warning p-2 rounded-lg"><FiEdit2 size={13} /></button>
-                      <button onClick={() => handleDelete(item.id)} className="btn-danger p-2 rounded-lg"><FiTrash2 size={13} /></button>
-                    </div>
-                  </div>
-                  <div className="p-2.5">
-                    <p className="text-white/80 text-xs font-medium truncate">{item.title}</p>
-                    <p className="text-white/30 text-xs truncate">{item.event_category || '—'}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+        : <div className="glass rounded-2xl p-3">
+            <div className="flex items-center justify-between mb-3 px-1">
+              <span className="text-white/30 text-xs">{filtered.length} image{filtered.length !== 1 ? 's' : ''}</span>
+            </div>
+            <div className="overflow-y-auto max-h-[60vh] pr-1">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                <AnimatePresence>
+                  {filtered.map((item, i) => (
+                    <motion.div key={item.id} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }} transition={{ delay: Math.min(i * 0.02, 0.3) }}
+                      className="glass rounded-xl overflow-hidden group hover:border-purple-500/40 transition-all duration-200 hover:shadow-lg hover:shadow-purple-900/20">
+                      <div className="relative aspect-square">
+                        <img src={item.image_url} alt={item.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                          <button onClick={() => handleEdit(item)} className="btn-warning p-2 rounded-lg"><FiEdit2 size={13} /></button>
+                          <button onClick={() => handleDelete(item.id)} className="btn-danger p-2 rounded-lg"><FiTrash2 size={13} /></button>
+                        </div>
+                      </div>
+                      <div className="p-2.5">
+                        <p className="text-white/80 text-xs font-medium truncate">{item.title}</p>
+                        <p className="text-white/30 text-xs truncate">{item.event_category || '—'}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
+            </div>
           </div>
       }
     </div>

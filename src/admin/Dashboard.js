@@ -46,10 +46,10 @@ export default function Dashboard() {
     const isActive = active === tab.id;
     return (
       <button onClick={() => { setActive(tab.id); onClick?.(); }}
-        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150
+        className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium transition-all duration-150
           ${isActive ? 'bg-gradient-to-r from-purple-600/30 to-pink-600/20 text-white border border-purple-500/30' : 'text-white/40 hover:text-white/80 hover:bg-white/5'}`}>
-        <Icon size={15} className={isActive ? 'text-purple-400' : ''} />
-        <span>{tab.label}</span>
+        <Icon size={14} className={`flex-shrink-0 ${isActive ? 'text-purple-400' : ''}`} />
+        <span className="truncate">{tab.label}</span>
         {isActive && <div className="ml-auto w-1.5 h-1.5 rounded-full bg-purple-400 flex-shrink-0" />}
       </button>
     );
@@ -60,24 +60,27 @@ export default function Dashboard() {
       <div className="flex min-h-screen bg-[#0f0a1e] w-full overflow-x-hidden">
 
         {/* ── DESKTOP SIDEBAR ── */}
-        <aside className="hidden md:flex w-60 flex-shrink-0 bg-[#130d24] border-r border-white/5 flex-col sticky top-0 h-screen z-10">
-          <div className="p-5 border-b border-white/5 flex items-center gap-3">
-            <div className="relative">
+        <aside className="hidden md:flex w-56 lg:w-60 flex-shrink-0 bg-[#130d24] border-r border-white/5 flex-col fixed top-0 left-0 h-screen z-20">
+          {/* Logo */}
+          <div className="flex-shrink-0 p-4 border-b border-white/5 flex items-center gap-3">
+            <div className="relative flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl blur-sm opacity-60" />
-              <img src={logo} alt="Spandan" className="relative h-9 w-9 rounded-xl object-contain" draggable={false} />
+              <img src={logo} alt="Spandan" className="relative h-8 w-8 rounded-xl object-contain" draggable={false} />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="text-white font-bold text-sm">Spandan</div>
               <div className="text-purple-400/60 text-xs">Fine Arts CMS</div>
             </div>
           </div>
-          <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">
+          {/* Nav — scrollable, fills remaining height */}
+          <nav className="flex-1 min-h-0 overflow-y-auto p-2 space-y-0.5">
             {TABS.map(tab => <NavItem key={tab.id} tab={tab} />)}
           </nav>
-          <div className="p-3 border-t border-white/5">
+          {/* Logout — always pinned at bottom */}
+          <div className="flex-shrink-0 p-2 border-t border-white/5">
             <button onClick={handleLogout}
-              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-red-400/50 hover:text-red-400 hover:bg-red-500/10 transition-all">
-              <FiLogOut size={15} />Logout
+              className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-red-400/50 hover:text-red-400 hover:bg-red-500/10 transition-all">
+              <FiLogOut size={14} />Logout
             </button>
           </div>
         </aside>
@@ -115,7 +118,7 @@ export default function Dashboard() {
         </AnimatePresence>
 
         {/* ── MAIN CONTENT ── */}
-        <div className="flex-1 flex flex-col min-w-0 w-full overflow-x-hidden">
+        <div className="flex-1 flex flex-col min-w-0 w-full overflow-x-hidden md:ml-56 lg:ml-60">
           {/* Header */}
           <header className="sticky top-0 z-10 bg-[#0f0a1e]/90 backdrop-blur-xl border-b border-white/5 px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-3">
             {/* Mobile menu button */}
